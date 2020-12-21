@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css?family=Forum&display=swap");
+.timelinecontainer{
+    display:flex;
+    flex-wrap: wrap;
+    margin-top:5%;
+    justify-content:space-between;
+    overflow: hidden;
+    margin: 0 10%;
+    
+}
+
+.itemContainer{
+    width: 34%;
+    height: 100%;
+    display: flex;
+
+}
+.textContainer{
+    display:flex;
+    flex-direction: column;
+    position:relative;
+    bottom:0;
+}
+
+.timelineImage{
+    margin-top:5rem;
+    width: 70%;
+}
+div{
+font-style: normal;
+font-weight:500;
+font-size: .6vw;
+}

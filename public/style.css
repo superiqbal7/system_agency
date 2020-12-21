@@ -1,0 +1,1202 @@
+/* @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css?family=Archivo+Black&display=swap"); */
+@import url("https://fonts.googleapis.com/css?family=Forum&display=swap");
+
+.header-fixed {
+    top: 0;
+    z-index: 1;
+}
+
+a:focus, a:hover {
+    color: black !important;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #8a7c85 !important;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #8a7c85 !important;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #8a7c85 !important;
+  }
+
+.font-Forum {
+    font-weight: 100 !important;
+    /* font-family: 'Forum', cursive !important; */
+    font-family: 'dodit-regular',-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto !important;
+    text-transform: uppercase;
+    font-size: 1.4vw !important;
+}
+
+.representation_form {
+    width: 100%;
+    padding-top: 80px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+    /* font-family: 'Forum', cursive !important; */
+    font-size: 11px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.representation_form .representation_form_inner {
+    max-width: 600px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.representation_form .representation_form_inner .form_heading {
+    font-size: 22px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: none;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+.representation_form .representation_form_inner input {
+    display: block;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 10px 0;
+    transition: all 0.3s;
+
+    /* underline */
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #a7a7a7;
+    outline:none;
+    box-shadow:none;
+
+    /*font size*/
+    font-size: .8vw;
+    font-family: helvetica-neue-light;
+
+    /* form spacing */
+    padding: 1vh .5vw;
+    margin: 2.5vh 0;
+    
+
+}.representation_form .representation_form_inner #attachment {
+
+    /*font size*/
+
+    /* form spacing */
+    padding: 0;
+    margin:0;
+    
+
+}
+.representation_form .representation_form_inner .attachment-limit-label {
+
+    /*font size*/
+    font-size: .8vw !important;
+    font-family: helvetica-neue-light !important;
+    color: #8a7c85;
+    /*fixer*/
+    width: 4vw;
+
+    /* form spacing */
+    padding: 0;
+    margin:0;
+    
+
+}.representation_form .representation_form_inner .fileupload-css-ak {
+
+
+    /* form spacing */
+    /* padding: -100px; */
+    margin:-2vh 0;
+    padding-left:.5vw;
+    
+
+}
+.representation_form .representation_form_inner input:focus {
+    border-color: #000;
+}
+.representation_form .representation_form_inner .two_section {
+    display: flex;
+    flex-wrap: nowrap;
+}
+@media screen and (max-width: 400px) {
+    .representation_form .representation_form_inner .two_section {
+    flex-wrap: wrap;
+}
+}.representation_form .representation_form_inner .two_section label {
+    margin: 0;
+    font-size: 16px;
+    padding-right: 5px;
+    color: #595959;
+    width: 40%}
+.representation_form .representation_form_inner .two_section input {
+    border: none;
+    background: #e9e9e9;
+    padding: 9px 15px;
+    font-size: 14px;
+}
+.representation_form .representation_form_inner select {
+    display: block;
+    width: 100%;
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    padding: 10px 10px;
+    transition: all 0.3s;
+    color: #747474;
+    font-size: 16px;
+}
+.representation_form .representation_form_inner .file_upload {
+    /* display: flex; */
+    /* align-items: center; */
+    display: table;
+    width: 100%;
+}
+@media screen and (max-width: 768px) {
+    .representation_form .representation_form_inner .file_upload {
+    /* flex-direction: column; */
+    display: table;
+    width: 100%;
+}
+}
+.representation_form .representation_form_inner .file_upload input {
+    border: none;
+    background: #e5e5e5;
+    /* width: auto; */
+    flex-grow: 1;
+    /* margin-left: 10px;
+    padding: 10px;
+    display: table;
+    width: 100%;*/
+}
+@media screen and (max-width: 768px) {
+    .representation_form .representation_form_inner .file_upload input {
+    /* margin-left: 0px; */
+    display: table;
+    width: 100%;
+    
+}
+
+}
+.representation_form .representation_form_inner .file_upload label {
+    font-size: 16px;
+    color: #535353;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+.representation_form .representation_form_inner textarea {
+    border: none;
+    width: 100%;
+    outline: none;
+    display: block;
+    transition: all 0.5s;
+
+    /* underline */
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #a7a7a7;
+    outline:none;
+    box-shadow:none;
+
+    /* font-size */
+    font-size: .8vw;
+    font-family: helvetica-neue-light;
+
+    /* form spacing */
+    padding: 1vh .5vw;
+    margin: 2.5vh 0;
+
+}
+.representation_form .representation_form_inner textarea:focus {
+    border-color: #000;
+}
+.representation_form .representation_form_inner .re_submit {
+    margin-top: 10px;
+}
+.representation_form .representation_form_inner .re_submit input[type="submit"] {
+    border: 1px solid transparent;
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    transition: all 0.5s;
+
+    width: 100%;
+    font-size: .7vw;   
+    margin-top: 5%;
+    text-transform: uppercase;
+    font-family: helvetica-neue, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+}
+.representation_form .representation_form_inner .re_submit input[type="submit"]:hover {
+    background: #fff;
+    color: #000;
+    border-color: #000;
+}
+
+.attachment-limit-label{
+    display: table-cell;
+    width: 52px;
+}
+.pt-7 {
+    padding-top: 7rem;
+}
+
+.style_heading {
+    font-size: 15px;
+    font-weight: normal;
+    font-family: -webkit-pictograph;
+    padding-left: 10px;
+    text-align: center;
+    font-weight:100;   
+}
+.style_heading a:hover{
+    text-decoration: none;
+}
+.style_heading strong{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 17px;
+}
+.image {
+  opacity: 1;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.image_text .image1 {
+    opacity: 1;
+  
+  }
+
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.image_text .image{
+    transition:all ease-in-out 0.5s;
+}
+.image_text:hover .image {
+    opacity: 0.3;
+  }
+/* 
+.pad{
+    margin-top: 100px;
+} */
+
+.btn-gender{
+    padding-top:60px;
+}
+
+.btn_link{
+    color: black;
+    text-decoration: none;
+}
+
+.btn_link:hover{
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.top-right {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    transition: .8s ease;
+    opacity: 0;
+    text-align: center;
+}
+
+/* for talent image hover text */
+.top-right-fix{
+    top:10px;
+    margin-top: 2%;
+    margin-right: 2%;
+    /* font-size: xx-small; */
+}
+
+.image_text:hover .top-right {
+    opacity: 1;
+}
+.image_text {
+    position: relative;
+    text-align: center;
+    color:black;  
+    /* margin-left: 20px; */
+}
+.top-right button, .top-right h4{
+    display: block;
+    margin-top: -10px;
+    padding: 0 10px;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    text-align: right;
+    font-family: helvetica-neue-light;
+    font-style: italic;
+}
+.top-right a,.top-right h4{
+    color: #000;
+   text-decoration: none;
+   font-size:10px;
+}
+.top-right button a:focus,.top-right button:focus{
+    outline: unset;
+    text-decoration: none;
+}
+.top-right a:hover{
+    text-decoration: none;
+    color: #000 !important;
+}
+
+ 
+/* for requested to be shown down */
+.top-right h4{
+    margin-top: 10px;
+}
+/* for button height decreasement */
+.top-right button{
+    line-height: 10px;
+    padding: 7px;
+    padding-bottom: 8.2px;
+    padding-top: 4.8px;
+    padding-right: 9.2px;
+    /* position: relative; */
+}
+
+ .hidden{
+     visibility: hidden;
+ }
+
+ .dropdown {
+    position: relative;
+    display: inline-block;
+
+    
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    opacity: 0;
+    /* z-index: 1; */
+    /* fixing the menu properly */ 
+    transition: all ease-in-out 0.5s;
+
+  }
+  .dropdown:hover .dropdown-content{
+      opacity: 1;
+  }
+  .dropdown-content a {
+    color: black;
+    font-size: 1.4rem;
+    text-decoration: none;
+    /* font-weight: bold; */
+   
+  }
+
+
+  .dropdown-content a:hover {
+      
+     /* font-weight: bold; */
+    text-decoration: none;
+    /* font-weight: 100; */
+    /* font-style: normal; */
+}
+  
+  
+.dropdown:hover .dropdown-content {
+    display:block;
+}
+
+.mr{
+    margin-left: -40px;
+    margin-top: 0.5rem;
+}
+.clr{
+      font-size: 50px;
+      color: brown;
+  }
+.pleft table tr{
+      font-size: 16px;
+      padding: 0 5px;
+  }
+.pleft table td{
+    padding: 0.8rem;
+    font-weight: bold;
+    text-align: left;
+ }
+.pleft{
+    padding-left: 3.2rem;
+    text-align: center;
+}
+.pleft table th{
+    text-align: right;
+    font-weight: normal;
+}
+.pleft h3{
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 100;
+}
+.pdf_btn{
+    margin-top: 1rem;
+    margin-left: 10rem;
+    padding: 5px;
+    width: 100px;
+    margin: 0 auto;
+}
+.pdf_btn i{
+    font-size: 35px;
+    padding: 0 !important;
+}
+.pdf_btn a{
+    font-size: 16px;
+    color: #3a3a3a ;
+}
+.pdf_btn a:hover{
+    text-decoration: none;
+}
+.pdf_btn button a{
+    color: black;
+    text-decoration: none;
+}
+
+.pdf_btn i{
+    display: block;
+    padding-left: 2.4rem;
+}
+
+.detail_btn{
+    /* margin-top: 5rem;
+    margin-left: 20px */
+}
+
+.detail_btn label {
+    padding-right: 4rem;
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+.detail_btn label.active{
+    font-weight: bold;
+}
+.editpageImage{
+  
+        height: 40px;
+        width: 30px;
+    
+}
+
+/* 
+@media screen and (min-width: 1101px) {
+    .view-packages {
+        top: 265px;
+        position: absolute;
+        margin-left: 20px;
+        font-style: italic;
+        cursor: pointer;
+    }
+    
+    .deselect-all {
+        top: 295px;
+        position: absolute;
+        margin-left: 20px;
+        font-style: italic;
+        cursor: pointer;
+    }
+} */
+
+/* 
+@media screen and (max-width: 1100px) {
+    .view-packages {
+        
+        margin-left: 20px;
+        font-style: italic;
+        cursor: pointer;
+    }
+
+    .deselect-all {
+       
+        margin-left: 20px;
+        font-style: italic;
+        cursor: pointer;
+    }
+
+    .side-labels {
+        text-align: center;
+        margin-top: 35px;
+    }
+
+    
+
+} */
+.slick-next {
+    right: 50px !important;
+}
+.slick-prev {
+    left: -45% !important;
+}
+.slick-prev:before, .slick-next:before {
+    content: '<' !important;
+    font-size: 30px !important;
+    line-height: 1;
+    opacity: .75;
+    color: #230000 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-next:before{
+    content: '>' !important;
+}
+/* .slick-prev, .slick-next { */
+    /* font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    cursor: pointer;
+    border: none; */
+
+    /* font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: #6b0000;
+    border: none;
+    background: #880101 !important; */
+   
+/* }  */
+
+.slider-image-wrapper
+{
+    height: 400px;
+    width: 400px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+}
+.slider-image 
+{
+    max-height: 98%;
+    max-width: 98%;
+    display: block;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.btn_link{
+    font-size: 22px;
+    font-weight: 100
+}
+.active .btn_link{
+    font-weight: bolder;
+}
+.dropdown button{
+    padding: 0 15px;
+}
+nav li.active a,.dropdown-content .active a{
+    font-weight: bold;
+}
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+
+  }
+  .modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    /* margin-right: -4px; */
+  }
+  .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+  }
+  
+.modal .modal-content{
+    border-radius: 0;
+    box-shadow: none;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150%;
+    margin-left: -25%;
+    
+    
+}
+.modal .modal-content .modal-body{
+    padding: 5% 0;
+    padding-bottom: 8%;
+}
+.modal h2{
+    text-transform: uppercase;
+    font-size: 1.4vw;
+    font-family: dodit-regular,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+}
+.modal form{
+    width: 50%;
+    margin: 0 auto;
+    /* padding: 50px 0; */
+    text-transform: capitalize;
+}
+.modal form input,.modal form textarea{
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    padding: 1vh .5vw;
+    margin: 2.5vh 0;
+    font-family: helvetica-neue, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+    font-size: .6vw;
+    color: #a7a7a7 
+}
+
+.success-message{
+    text-transform: none;
+    display: block;
+    width: 100%;
+    padding: 1vh .5vw;
+    margin: 3.5vh 0;
+    font-family: helvetica-neue-italic,  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+    color: #707070;
+    font-size: .9vw;
+    width: 150%;
+    margin-left: -25%;
+    
+    
+}
+
+.success-message-big{
+    display: block;
+    width: 100%;
+    padding: 1vh .5vw;
+    margin: 5.4vh 0;
+    font-family: helvetica-neue-italic,  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+    color: #707070;
+    font-size: 1.5em;
+}
+
+.modal form input:focus,.modal form textarea:focus{
+    outline: unset;
+}
+.modal form textarea{
+    height: 40px;
+}
+.modal form button{
+    background-color: #000;
+    width: 100%;
+    color: #fff;
+    padding: .5vh 0;
+    padding-top: .6vh;
+    font-size: .56vw;
+    margin-top: 5%;
+    text-transform: uppercase;
+    font-family: helvetica-neue, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+}
+.left{
+    left: -45%;
+    position: relative;
+    /* z-index: -1; */
+}
+.nav-custom{
+    padding: 5px 0 !important;
+    text-align: center;
+    visibility:hidden;
+    opacity: 0;
+    transition: all ease-in-out 0.5s, opacity ease-in-out 0.5s
+    
+}
+nav.header-fixed:hover .nav-custom{
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.nav-custom{
+    padding: 0 10%;
+    background-color: white;
+}
+.nav-custom ul{
+    margin: 0;
+    
+
+    margin-left: -0.8%;
+    /* margin-right:  */
+}
+.nav-custom li a:hover{
+    text-decoration: none;
+    font-family: helvetica-neue-heavy;
+    /* transition: background-color 0.5s ease;
+    background-color: red; */
+    /* font-weight: 100; */
+
+}
+.nav-custom li a{
+    text-decoration: none;
+    font-family: helvetica-neue-thin;
+    /* transition: background-color 0.5s ease;
+    background-color: red; */
+    /* font-weight: 100; */
+
+}
+.dropdown button a:focus{
+    outline: unset;
+    text-decoration: none;
+}
+.dropdown .dropdown-content{
+    left: 5px;
+}
+.dropdown .dropdown-content button{
+    padding: 0 10px;
+    /* font-family: helvetica-neue-regular; */
+}
+/* .side-labels {
+	position: fixed;
+	z-index: 999;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+.side-labels span{
+    text-align: right;
+    font-weight: 100;
+}
+.side-labels span.deselect-all{
+    margin-left: 22px;
+}
+.side-labels span:hover{
+    font-weight: 500;
+} */
+.image_text .close {
+    position: absolute;
+	color: #000;
+	/* opacity: 1;container pad */
+	/* font-size: 14px; */
+	background-color: rgba(255,255,255,0.3);
+	width: 100%;
+	height: 100%;
+    text-align: right;
+
+}
+.image_text .talents-close{
+    position: absolute;
+	color: #000;
+	opacity: 0.5;
+    /* font-size: 14px; */
+    /* font-weight: lighter; */
+	background-color: rgba(255,255,255,0.3);
+	width: 100%;
+    height: 100%;
+    text-align: right;
+    
+}
+
+.material-icons.md-1 { font-size: 1em; }
+.material-icons.md-2 { font-size: .8em; }
+
+.fa-times-thin:before{
+    /* content: '\00d7';
+    font-size:14px;
+    margin-top: -0.85em;
+    margin-right: -1.5em; */
+    /* position: absolute; */
+    /* z-index: 1; */
+    /* position: absolute; */
+    
+}
+/* .fa-times-thin:before .image_text .close {
+    content: '\00d7';
+    font-size:14px;
+    margin-top: -.87em;
+    
+} */
+.image_text:hover img{
+    opacity: 0.5;
+}
+.image_text_faded{
+    opacity: 0.5;
+}
+.image_text .close p{
+    padding: 5px 10px;
+    margin: 0;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.image_text .close i{
+    visibility: hidden;
+}
+
+.image_text:hover .close i {
+    visibility: visible;
+}
+
+
+.image_text .talents-close i{
+    visibility: hidden;
+    margin-top: 4%;
+    margin-right: 4%;
+}
+
+.image_text:hover .talents-close i {
+    visibility: visible;
+}
+
+
+.dropdown:hover {
+    opacity: 1;
+    font-weight: bolder;
+    font-family: helvetica-neue-bold;
+    font-style: italic;
+
+    /* font-size: xx-large; */
+}
+.dropdown:hover .dropdown-content{
+    font-weight: normal;
+    font-family: helvetica-neue-light;
+}
+/* @keyframes hover{
+    0%{
+        color: white;
+    }
+    25%{
+        color: gray;
+    }
+    75%{
+        color: deep;
+    } */
+
+.dropdown-content:hover button:hover{
+    /* font-weight: 900; */
+    font-family: helvetica-neue-medium;
+    font-style: italic;
+    /* animation-name: hover; */
+
+}
+/* 
+.zindex-high{
+    z-index: 1;
+    position: absolute;
+}
+.zindex-low{
+    z-index: -1;
+    position: absolute;
+    left: -7vw;
+} */
+
+.input-line {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #a7a7a7;
+    outline:none;
+    box-shadow:none;
+}
+
+
+
+.textarea-input-line{
+    padding-bottom: -100vh;
+}
+
+/* New left panel */
+    .new-left-panel {
+        margin: 0;
+        padding: 0.5%;
+        padding-top: 2.5%;
+        width: 12%;
+        /* background-color: #f1f1f1; */
+        font-family: helvetica-neue-thin, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+        /* font-weight: 300; */
+        font-style: italic;
+        font-size: 1.5vh;
+        position: fixed;
+        /* height: 100%; */
+        overflow: auto;
+    }
+
+    @media only screen and (device-width: 768px) {
+        /* For general iPad layouts */
+        
+        .new-left-panel {
+            margin: 0;
+            padding: 0.5%;
+            padding-top: 2.5%;
+            width: 12%;
+            /* background-color: #f1f1f1; */
+            font-family: helvetica-neue-thin, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+            /* font-weight: 300; */
+            font-style: italic;
+            font-size: 1vh;
+            position: fixed;
+            /* height: 100%; */
+            overflow: auto;
+        }
+    
+    }
+    
+    /* Sidebar links */
+    .new-left-panel button {
+        display: block;
+   
+
+        /* color: black; */
+        padding: 2%;
+        text-decoration: none;
+        text-align: right;
+        width: 100%;
+        padding-right: 22%;
+        outline: none;
+        overflow: hidden;
+        white-space: nowrap;
+    
+
+    }
+
+    
+    /* .new-left-panel button:focus{
+    } */
+
+    
+    /* Active/current link */
+    /* .new-left-panel a.active {
+        background-color: #4CAF50;
+        color: white;
+    } */
+    
+    /* Links on mouse-over */
+    /* .new-left-panel a:hover:not(.active) {
+        background-color: #555;
+        color: white;
+    }     */
+    /* Links on mouse-over */
+    .new-left-panel button:hover {
+        /* background-color: #555; */
+        /* color: white; */
+        font-weight: bold;
+        /* text-align: left; */
+    }
+    
+    /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+    .talent-content {
+        /* margin-left: -10%; */
+        /* padding: 1px 16px; */
+        /* height: 1000px; */
+    }
+    
+    /* On screens that are less than 700px wide, make the sidebar into a topbar */
+    /* @media screen and (max-width: 700px) {
+        .new-left-panel {
+        width: 100%;
+        height: auto;
+        position: relative;
+        }
+        .new-left-panel button {float: left;}
+        .talent-content {margin-left: 0;}
+    }
+     */
+    /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+    /* @media screen and (max-width: 400px) {
+        .new-left-panel button {
+        text-align: center;
+        float: none;
+        }
+    } */
+
+    
+/*menu fix stuff */
+
+/* transition-duration: 700ms; */
+
+/* html { 
+    width: 100vw; 
+    height: 100vh !important; 
+    z-index: 1; 
+    max-width: 100%; 
+} */
+/* 
+.middle{
+    overflow: visible;
+} */
+
+/* page left shift issue */
+.modal-open, body {overflow: inherit !important;}
+body { padding-right: 0 !important }
+
+
+/* fixing size of each popup */
+
+/* fixing men women menu */
+
+.men-dropdown{
+    visibility: hidden;
+    /* transition: all ease-out 5s; */
+
+}
+.men-button:hover + .men-dropdown{
+    visibility: visible ;
+
+}
+
+.men-dropdown:hover{
+    visibility: visible;
+    z-index: 11;
+}
+.women-dropdown{
+    visibility: hidden;
+    /* transition: all ease-out 5s; */
+
+}
+.women-button:hover + .women-dropdown{
+    visibility: visible ;
+
+}
+.women-button:hover + .men-dropdown{
+    visibility: hidden ;
+
+}
+.women-dropdown:hover{
+    visibility: visible;
+    z-index: 11;
+}
+
+
+.women-dropdown{
+    z-index: 108 !important;
+}
+
+.women-button:hover + .men-dropdown::after{
+    content: " ";
+}
+.men-button:hover + .women-dropdown::after{
+    content: " ";
+}
+
+.men-button:active + .women-dropdown{
+    visibility: hidden;
+}
+.women-button:active + .men-dropdown{
+    visibility: hidden;
+}
+
+/* 
+
+.men-button .men-dropdown{
+    transition: all ease-in-out 0.5s;
+
+} */
+
+/* N - glitch fix */
+
+.n-glitch-start{
+    padding-left: 5vw;
+}
+.n-glitch-end{
+    padding-right: 5vw;
+}
+
+/* About */
+
+.about-page{
+    position: absolute;
+    top:55%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left:0;
+    right:0;
+}
+
+.about-office-buttons{
+    font-size: 70%;
+}
+
+.about-office-buttons button a:hover{
+    text-decoration: none;
+}
+
+.about-office-buttons #about-button{
+    padding-left: 5vw;
+}
+.about-office-buttons #office-button{
+    padding-right: 5vw;
+}
+
+/* office cards */
+.card-office{
+    /* margin: auto; */
+    /* width: 100vw; */
+    /* margin:0 auto; */
+    /* margin-left: 10vw; */
+    /* margin-right: 10vw; */
+    /* align-content: center; */
+    display: flex;
+    /* align-items: center; */
+}
+
+.card-office-box{
+    margin: 0 5vw;
+}
+.card-office-box  a{
+    text-decoration: none !important;
+    color: #333;
+}
+.card-office-box a:hover{
+    text-decoration: none;
+}
+
+/* representations fix */
+
+.representation_form .representations-input-line {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #a7a7a7;
+    outline:none;
+    box-shadow:none;
+}
+
+.office-page{
+    position: absolute;
+    top:45%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left:0;
+    right:0;
+}
+
+/* footer */
+
+.footer-zone-office-page{
+     /* position: fixed; */
+    /* bottom: 0; */
+    /* right: 0;
+    left: 0;
+    height: 110px; */
+    /* margin-top: 20.4vh; */
+    /* bottom: 0; */
+    margin-top: 89.5vh;
+    /* height: 100%; */
+}

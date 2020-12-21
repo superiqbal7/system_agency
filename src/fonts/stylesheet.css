@@ -1,0 +1,126 @@
+@font-face {
+    font-family: 'helvetica-neue-thin';
+    src: url('./HelveticaNeueThin.woff2') format('woff2'),
+        url('./HelveticaNeueThin.woff') format('woff'),
+        url('./HelveticaNeueThin.ttf') format('ttf');
+}
+
+.helvetica-neue-thin {
+    font-family: helvetica-neue-thin;
+}
+
+@font-face {
+    font-family: 'helvetica-neue-regular';
+    src: url('./HelveticaNeueRegular.woff2') format('woff2'),
+        url('./HelveticaNeueRegular.woff') format('woff'),
+        url('./HelveticaNeue.ttf') format('ttf');
+}
+
+.helvetica-neue-regular{
+    font-family: helvetica-neue-regular;
+}
+
+@font-face {
+    font-family: 'helvetica-neue-medium';
+    src: url('./HelveticaNeueMedium.woff2') format('woff2'),
+        url('./HelveticaNeueMedium.woff') format('woff'),
+        url('./HelveticaNeueMed.ttf') format('ttf');
+}
+
+.helvetica-neue-medium{
+    font-family: helvetica-neue-medium;
+}
+
+@font-face {
+    font-family: 'helvetica-neue-heavy';
+    src: url('./HelveticaNeueHeavy.woff2') format('woff2'),
+        url('./HelveticaNeueHeavy.woff') format('woff'),
+        url('./HelveticaNeueHv.ttf') format('ttf');
+}
+
+.helvetica-neue-heavy{
+    font-family: helvetica-neue-heavy;
+}
+
+@font-face {
+    font-family: 'helvetica-neue-light';
+    src: url('./HelveticaNeueLight.woff2') format('woff2'),
+        url('./HelveticaNeueLight.woff') format('woff'),
+        url('./HelveticaNeueLt.ttf') format('ttf');
+}
+
+.helvetica-neue-light{
+    font-family: helvetica-neue-light;
+}
+
+@font-face {
+    font-family: 'helvetica-neue-bold';
+    src: url('./HelveticaNeueBold.woff2') format('woff2'),
+        url('./HelveticaNeueBold.woff') format('woff'),
+        url('./HelveticaNeueBd.ttf') format('ttf');
+}
+
+.helvetica-neue-bold{
+    font-family: helvetica-neue-bold;
+}
+
+@font-face {
+    font-family: 'helvetica-neue-italic';
+    src: url('./HelveticaNeueItalic.woff2') format('woff2'),
+        url('./HelveticaNeueItalic.woff') format('woff'),
+        url('./HelveticaNeueIt.ttf') format('ttf');
+}
+
+.helvetica-neue-italic{
+    font-family: helvetica-neue-italic;
+}
+
+@font-face {
+    font-family: 'helvetica-neue-black-cond';
+    src: url('./HelveticaNeueBlackCond.woff2') format('woff2'),
+        url('./HelveticaNeueBlackCond.woff') format('woff'),
+        url('./HelveticaNeue\ BlackCond.ttf') format('ttf');
+}
+
+.helvetica-neue-black-cond{
+    font-family: helvetica-neue-black-cond;
+}
+
+/* body {
+    font-family: 'Roboto' !important;
+} */
+@font-face {
+    font-family: 'dodit-bold-italic';
+    src: url('./DidotBoldItalic.ttf');
+}
+.dodit-bold-italic{
+    font-family: 'dodit-bold-italic';
+}
+@font-face {
+    font-family: 'dodit-bold';
+    src: url('./DidotLTStdBold.otf');
+}
+.dodit-bold{
+    font-family: 'dodit-bold';
+}
+@font-face {
+    font-family: 'dodit-italic';
+    src: url('./DidotLTStdItalic.otf');
+}
+.dodit-italic{
+    font-family: 'dodit-italic';
+}
+@font-face {
+    font-family: 'dodit-medium';
+    src: url('./DidotMedium.ttf');
+}
+.dodit-medium{
+    font-family: 'dodit-medium';
+}
+@font-face {
+    font-family: 'dodit-regular';
+    src: url('./DidotRegular.ttf');
+}
+.dodit-regular{
+    font-family: 'dodit-regular';
+}

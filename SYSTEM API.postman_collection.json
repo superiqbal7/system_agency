@@ -1,0 +1,4591 @@
+{
+	"info": {
+		"_postman_id": "ddb805b0-938f-4525-b4c2-65c982e502b0",
+		"name": "SYSTEM API",
+		"description": "# SYSTEM API\n---\nThis Postman collection will used during the developmment process\nfor this API REST.\n<br/><br/>\n\nThe API REST described here will use the backend service developed\nfor the website systemagency.com\n<br/><br/>\n\nRight now the postman collection have 4 primary routes that \nallow a simple data flow during the usage from this API:\n\n- Talent.\n- Work.\n- Resource.\n- Component.\n\n<br/>\nEach *primary route* have a set of routes and examples associeated with \neach one. Trying to increase the expression of the routes and the \nusability ofthe API for every client who want to use it.\n\n## Hint\n\nThis description will serve a documentation only from the API described during\nall this Postman Collection. \n<br/><br/>\n\nFor a deployment process there not exist much information, for more details,\nplease follow the next github repository (allowed only for collaborators).\n\n- https://github.com/realFranco/SA_rest_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Agency_User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "system_email",
+									"value": "jhon-3",
+									"description": "Do not need it the \"@domain.com\"",
+									"type": "text"
+								},
+								{
+									"key": "system_password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "bad_field",
+									"value": "1234",
+									"description": "Enable this to get an error",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/system-auth/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"system-auth",
+								""
+							]
+						},
+						"description": "Endpoint to insert a row into the Agency_User table. \n<br/><br/>\n\nOnly two arguments are available for this request. If the body have not this two arguments:\n- system_[email | password]\n<br/><br/>\n\nAn error will be thown."
+					},
+					"response": []
+				},
+				{
+					"name": "Filter User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authentication",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiNGNlZDE1MjItNjZhYi00ZjkxLTk1YzgtYWVlNTUxM2ZiMjE5IiwiZW1haWwiOiJqaG9uIiwiaGFzaCI6IjE5YjcyNmQ0MDQ2YjQyYWI2YTAzMGFmZjA2M2ZmZTQzMjExMTRlZjcyNTE5NWEyZTc4NWM1OTc5OTdlY2Q3MjQiLCJpYXQiOjE1ODk4OTM5MzUsImV4cCI6MTU4OTkyMjczNX0.d6Jt0nRaLRb0bGf_-zp0CQUfIRAA_jABqofuqMNlYUQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/system-auth/?email=jhon",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"system-auth",
+								""
+							],
+							"query": [
+								{
+									"key": "id_user",
+									"value": "25eab892-6284-438e-acf5-24f8c83e9d22",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "jhon"
+								},
+								{
+									"key": "include",
+									"value": "email",
+									"description": "Comma Separated Value",
+									"disabled": true
+								},
+								{
+									"key": "exclude",
+									"value": "hash",
+									"description": "Comma Separated Value",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will let the client to filter rows from the table Agency_User.\n<br/><br/>\n\nThe body can include or exlcude attributes from the row selected, follow the example body.\n<br/><br/>\n\nIf the body do not contain the next arguments:\n- system_user_id\n- system_email\n<br/><br/>\n\nThe the endpoint will scan the table Agency_User."
+					},
+					"response": [
+						{
+							"name": "Filter User - Scan",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/system-auth/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"system-auth",
+										""
+									],
+									"query": [
+										{
+											"key": "id_user",
+											"value": "25eab892-6284-438e-acf5-24f8c83e9d22",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "jhon",
+											"disabled": true
+										},
+										{
+											"key": "include",
+											"value": "email",
+											"description": "Comma Sepparated Value",
+											"disabled": true
+										},
+										{
+											"key": "exclude",
+											"value": "hash",
+											"description": "Comma Sepparated Value",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "662"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"296-Y9nyGE8hrgB1dujXynmUUqxrfQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 May 2020 17:18:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 3,\n    \"message\": \"object(s) found\",\n    \"item\": {\n        \"count\": 4,\n        \"rows\": [\n            {\n                \"id_user\": \"25eab892-6284-438e-acf5-24f8c83e9d22\",\n                \"email\": \"jhon\",\n                \"hash\": \"19b726d4046b42ab6a030aff063ffe4321114ef725195a2e785c597997ecd724\"\n            },\n            {\n                \"id_user\": \"ffdedfd9-82f7-4efc-a162-f9e5cfc11d43\",\n                \"email\": \"jhon-2\",\n                \"hash\": \"19b726d4046b42ab6a030aff063ffe4321114ef725195a2e785c597997ecd724\"\n            },\n            {\n                \"id_user\": \"e9d62a83-4bd6-494d-82fd-5701508bdcb6\",\n                \"email\": \"jhon-3\",\n                \"hash\": \"19b726d4046b42ab6a030aff063ffe4321114ef725195a2e785c597997ecd724\"\n            },\n            {\n                \"id_user\": \"8da3d8e2-c056-4d87-acb2-a790f56d71b7\",\n                \"email\": \"jhon-4\",\n                \"hash\": \"19b726d4046b42ab6a030aff063ffe4321114ef725195a2e785c597997ecd724\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Filter User - Include only email",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/system-auth/?include=email",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"system-auth",
+										""
+									],
+									"query": [
+										{
+											"key": "id_user",
+											"value": "25eab892-6284-438e-acf5-24f8c83e9d22",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "jhon",
+											"disabled": true
+										},
+										{
+											"key": "include",
+											"value": "email",
+											"description": "Comma Separated Value"
+										},
+										{
+											"key": "exclude",
+											"value": "hash",
+											"description": "Comma Separated Value",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "170"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"aa-nFQyTg2VbiQ69OnkIQT/QHrbGgs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 May 2020 17:18:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 3,\n    \"message\": \"object(s) found\",\n    \"item\": {\n        \"count\": 4,\n        \"rows\": [\n            {\n                \"email\": \"jhon\"\n            },\n            {\n                \"email\": \"jhon-2\"\n            },\n            {\n                \"email\": \"jhon-3\"\n            },\n            {\n                \"email\": \"jhon-4\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authentication",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiNGNlZDE1MjItNjZhYi00ZjkxLTk1YzgtYWVlNTUxM2ZiMjE5IiwiZW1haWwiOiJqaG9uIiwiaGFzaCI6IjE5YjcyNmQ0MDQ2YjQyYWI2YTAzMGFmZjA2M2ZmZTQzMjExMTRlZjcyNTE5NWEyZTc4NWM1OTc5OTdlY2Q3MjQiLCJpYXQiOjE1ODk4OTM5MzUsImV4cCI6MTU4OTkyMjczNX0.d6Jt0nRaLRb0bGf_-zp0CQUfIRAA_jABqofuqMNlYUQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "system_user_id",
+									"value": "25eab892-6284-438e-acf5-24f8c83e9d22",
+									"description": "uuid from the user",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "system_email",
+									"value": "jhon",
+									"description": "Can pass \"name\" or \"name@domain.com\"",
+									"type": "text"
+								},
+								{
+									"key": "system_new_password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/system-auth/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"system-auth",
+								"update"
+							]
+						},
+						"description": "Update and Users' **password** attribute.\n<br/><br/>\n\nThe body can obtain two arguments to select the correct row and edit the password attribute:\n\n- system_user_id\n- system_email\n<br/><br/>\n\nIf the body detect those arguments, by precedence *system_email* will be use it, instead of *system_user_id*.\n<br/><br/>\n\nWatch the body example."
+					},
+					"response": [
+						{
+							"name": "Update User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "system_email",
+											"value": "jhon",
+											"description": "Can pass \"name\" or \"name@domain.com\"",
+											"type": "text"
+										},
+										{
+											"key": "system_user_id",
+											"value": "350d11c9-a3e2-4116-b5b9-68de97db557f",
+											"description": "uuid from the user",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "system_new_password",
+											"value": "1234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/system-auth/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"system-auth",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5b-9ryoXEjL63ATAMamIqBUYkytLCQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 May 2020 16:25:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 5,\n    \"message\": \"object updated\",\n    \"item\": {\n        \"email\": \"jhon\"\n    }\n}"
+						},
+						{
+							"name": "Update User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "system_email",
+											"value": "franco",
+											"type": "text"
+										},
+										{
+											"key": "system_new_password",
+											"value": "123",
+											"type": "text"
+										},
+										{
+											"key": "system_email",
+											"value": "fake",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "system_user_id",
+											"value": "",
+											"description": "uuid from the user",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/system-auth/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"system-auth",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5d-x7KjdZcLBxJhMRoSPczBZbYuLa0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 May 2020 00:58:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 5,\n    \"message\": \"object updated\",\n    \"item\": {\n        \"email\": \"info\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authentication",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiMjVlYWI4OTItNjI4NC00MzhlLWFjZjUtMjRmOGM4M2U5ZDIyIiwiZW1haWwiOiJqaG9uIiwiaGFzaCI6IjE5YjcyNmQ0MDQ2YjQyYWI2YTAzMGFmZjA2M2ZmZTQzMjExMTRlZjcyNTE5NWEyZTc4NWM1OTc5OTdlY2Q3MjQiLCJpYXQiOjE1ODk4OTI1NzksImV4cCI6MTU4OTkyMTM3OX0.n3Ly5tdytpbZwHnH1k7NOv9upWdW9BBhnyrD2rpES4Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "system_user_id",
+									"value": "8da3d8e2-c056-4d87-acb2-a790f56d71b6",
+									"type": "text"
+								},
+								{
+									"key": "system_email",
+									"value": "franco",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "fake_argument",
+									"value": "fake_value",
+									"description": "Enable this to wath errors",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/system-auth/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"system-auth",
+								""
+							]
+						},
+						"description": "Route to delete one or many row(s) from the table Agency_User.\n<br/><br/>\n\nIf the body it is empty then, all the elements from the table will be deleted.\n<br/><br/>\n\nIn other hand, delete a row by email or by the identifier:\n- system_user_id\n- system_email\n<br/><br/>\n\nIf the body contain that two arguemnts, by precedence the *system_user_id* will be take it first, instead of *system_email*."
+					},
+					"response": [
+						{
+							"name": "Delete User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "system_user_id",
+											"value": "asd",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "system_email",
+											"value": "franco",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "fake_argument",
+											"value": "fake_value",
+											"description": "Enable this to wath errors",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/system-auth/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"system-auth",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-yW18mIdVnMShXCqv0BroRd4E/EU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 May 2020 16:25:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 6,\n    \"message\": \"object(s) deleted, count: 2\"\n}"
+						}
+					]
+				}
+			],
+			"description": "## Agency_User\n---\nThis collection will manage the set of rows from the table **Agency_User**,\nand grant access into some private routes, for more information about \nthis table, follow the UML - ERD image from the folder \"/utils\".",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "39267f75-dedd-4cde-b431-eb69e5bf4315",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "12019249-7e28-47a5-970a-578fab2a0550",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Request a Token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "system_email",
+									"value": "jhon",
+									"type": "text"
+								},
+								{
+									"key": "system_password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/auth/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								""
+							]
+						},
+						"description": "This endpint will create a token.\n<br/><br/>\n\nThe body need the next arguments for a correct token request:\n- system_email\n- system_password"
+					},
+					"response": []
+				}
+			],
+			"description": "## Authentitication\n\nThe next set of endpoints, will manage the tokens need it to add a tiny \"security layer\" over some private endpoints.",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Component",
+			"item": [
+				{
+					"name": "Create Component",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "components_name",
+									"value": "talent_cover,talent_portfolio,talent_polaroid,talent_video",
+									"description": "Name of every new component, comma separated value",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "components_name",
+									"value": "video_main,video_mid,video_work,carousel_main,carousel_work,timeline_main,timeline_work",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/component",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"component"
+							]
+						},
+						"description": "Can create one or many components, use a comma sepparated value format over the unique attribute enable on the body."
+					},
+					"response": [
+						{
+							"name": "Create Components",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "components_name",
+											"value": "talent_cover,talent_portfolio,talent_polaroid,talent_video",
+											"description": "Name of every new component, comma separated value",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "components_name",
+											"value": "video_main,video_mid,video_work,carousel_main,carousel_work,timeline_main,timeline_work",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "components_name",
+											"value": "video_mid,video_work",
+											"type": "text",
+											"disabled": true
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/component",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"component"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"48-oNieZr4/s0lLouvMasmSJLvK6FI\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 May 2020 21:00:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 2,\n    \"message\": \"components inserted\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Filter Component",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/component",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"component"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "name",
+									"description": "Elements to show at the query results. Comma Sepparated Value.",
+									"disabled": true
+								},
+								{
+									"key": "exclude",
+									"value": "name",
+									"description": "Elements to show at the query results. Comma Sepparated Value.",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "talent_cover",
+									"disabled": true
+								},
+								{
+									"key": "id_component",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This endpoint will let you fetch all the Components from the database."
+					},
+					"response": [
+						{
+							"name": "Filter. Components",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/component?name=talent_cover",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"component"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "name",
+											"description": "Elements to show at the query results. Comma Sepparated Value.",
+											"disabled": true
+										},
+										{
+											"key": "exclude",
+											"value": "name",
+											"description": "Elements to show at the query results. Comma Sepparated Value.",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "talent_cover"
+										},
+										{
+											"key": "id_component",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "171"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ab-kqcINB4Zmrt48cK/TpVlh0pQuLA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 May 2020 22:08:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 3,\n    \"message\": \"object found\",\n    \"item\": {\n        \"count\": 1,\n        \"rows\": [\n            {\n                \"id_component\": \"807b9d85-a498-48bd-b6fe-f8510bb22706\",\n                \"name\": \"talent_cover\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Component",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_component",
+									"value": "3d18d9ef-43e7-4eba-b5bd-a557c68eb85f",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "new_name",
+									"value": "new_test_3",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/component/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"component",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Components - Using id_component",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_component",
+											"value": "3d18d9ef-43e7-4eba-b5bd-a557c68eb85f",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "new_name",
+											"value": "new_test_3",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/component/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"component",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "130"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"82-6WPUPtnfD3IppVpbzSALYDv/N/s\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 May 2020 21:05:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 5,\n    \"message\": \"object updated\",\n    \"item\": {\n        \"id_component\": \"3d18d9ef-43e7-4eba-b5bd-a557c68eb85f\"\n    }\n}"
+						},
+						{
+							"name": "Update Components",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "new_name",
+											"value": "new_test",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/component/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"component",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5a-sQNT8+ipwr65SmmJJzJf9a07QYw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 May 2020 21:04:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 5,\n    \"message\": \"object updated\",\n    \"item\": {\n        \"name\": \"test\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Component",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_component",
+									"value": "590fa8a6-369a-4031-906c-20703da91f67",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "carousel_work",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/component/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"component",
+								""
+							]
+						},
+						"description": "Endpoint to delete components.\n<br/> <br/>\n\nDelete by [**name**] (component_name). Keep the body empty for delete all components.\n<br/> <br/>\n\nThat is the precedence order of selection for the attribute to lead a delete query.\n<br/> <br/>"
+					},
+					"response": [
+						{
+							"name": "Delete Component",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/component/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"component",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51-7/4MDCxbXSYR2qfjaCrw/26txm0\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 May 2020 21:47:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 5,\n    \"message\": \"object(s) deleted, count: 14\"\n}"
+						}
+					]
+				}
+			],
+			"description": "## Component\n---\nThis collection will manage the set of rows from the table **Component**,\nfor more information about this table, follow the UML - ERD image from \nthe folder \"/utils\".",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "dd012090-0e38-41ab-a177-b9a0f54dd108",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9dc08ac3-e1af-4eb7-9f52-00805ba98d4d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Delivery",
+			"item": [
+				{
+					"name": "Check Dlivery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/delivery",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"delivery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Share",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "data",
+									"value": "dal}}t",
+									"description": "JSON to string",
+									"type": "text"
+								},
+								{
+									"key": "email_destiny",
+									"value": "franco@systemagency.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/delivery",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"delivery"
+							]
+						},
+						"description": "Share the requested models. \n<br/>"
+					},
+					"response": []
+				}
+			],
+			"description": "## Delivery",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "PDF",
+			"item": [
+				{
+					"name": "Get PDF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pdf",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pdf"
+							],
+							"query": [
+								{
+									"key": "slug",
+									"value": "a-b",
+									"disabled": true
+								},
+								{
+									"key": "talent_exclude",
+									"value": "id_talent",
+									"description": "Attr.s from table Talent to exlcude form the query, optional, use a CSV format.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Endpoint to create a PDF document, given talent descriptions and image.\n<br/><br/>\n\nThe url only required:\n- Talent slug"
+					},
+					"response": [
+						{
+							"name": "Get PDF - Bard Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/pdf",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"pdf"
+									],
+									"query": [
+										{
+											"key": "slug",
+											"value": "a-b",
+											"disabled": true
+										},
+										{
+											"key": "talent_exclude",
+											"value": "id_talent",
+											"description": "Attr.s from table Talent to exlcude form the query, optional, use a CSV format.",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "175"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"af-9pJsI9Ypok1JzCA1RXLB+zzu0hw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jun 2020 17:12:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"fail\",\n    \"http_code\": 400,\n    \"code\": 33,\n    \"message\": \"error while creating the pdf content\",\n    \"error\": [\n        {\n            \"err\": \"Error: Params for start a query are empty, query not processed\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "## PDF\n\nThe talents can be exported with as a PDF artifact for the client.",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Representation",
+			"item": [
+				{
+					"name": "Send Representation.",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "applicant_name",
+									"value": "Franco Gil",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "22",
+									"type": "text"
+								},
+								{
+									"key": "pkid",
+									"value": "realFranco",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "franco@systemagency.com",
+									"type": "text"
+								},
+								{
+									"key": "mobile_number",
+									"value": "+58",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Venezuela",
+									"type": "text"
+								},
+								{
+									"key": "nearest_major_city",
+									"value": "Valencia",
+									"type": "text"
+								},
+								{
+									"key": "height",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "bust",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "waist",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "hips",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "shoes",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "hair_colour",
+									"value": "Blue",
+									"type": "text"
+								},
+								{
+									"key": "eye_colour",
+									"value": "Blue",
+									"type": "text"
+								},
+								{
+									"key": "comments",
+									"value": "Commentary",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/representation",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"representation"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "## Reprentation\n----\n\nThis module will let the client make a representation request for the website and <br/>\nsend those into emails for reviews into the organization <br/>",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Resource",
+			"item": [
+				{
+					"name": "Create Resource",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "assets",
+									"description": "Can insert 1 or many elements, only image or video extension are allowed.",
+									"type": "file",
+									"src": [
+										"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/work.jpg",
+										"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/polaroid.png"
+									]
+								},
+								{
+									"key": "id_talent",
+									"value": "52fa8dc1-cf54-47fa-a80d-981f6d0de360",
+									"description": "Talent associated with tihs set of assets.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "id_work",
+									"value": "6328f97d-efa3-457e-a1a4-2f120caf689c",
+									"description": "Work associated with tihs set of assets.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "component_name",
+									"value": "carousel_main,carousel_work",
+									"description": "The componet(s) name(s) listed here will be associated with all the assets uploaded in this request. Comma Sepparated Value.",
+									"type": "text"
+								},
+								{
+									"key": "field_not_avaliable",
+									"description": "Enable this field to watch the error.",
+									"type": "file",
+									"src": "/home/rosa/Documents/dev/SA_rest_api/public/assets_to_upload_during_tests/work.jpg",
+									"disabled": true
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/resource",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"resource"
+							]
+						},
+						"description": "Endpoint for create resoruce.\n<br/><br/>\n\nOne resoruce, specially images, now can be realted with 1 or many components.\n<br/><br/>\n\nFor that reason, the property named *component_name* will be an array of Strings."
+					},
+					"response": [
+						{
+							"name": "Create Resource",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "assets",
+											"description": "Can insert 1 or many elements, only image or video extension are allowed.",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/work.jpg",
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/polaroid.png"
+											]
+										},
+										{
+											"key": "id_talent",
+											"value": "52fa8dc1-cf54-47fa-a80d-981f6d0de360",
+											"description": "Talent associated with tihs set of assets.",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "id_work",
+											"value": "6328f97d-efa3-457e-a1a4-2f120caf689c",
+											"description": "Work associated with tihs set of assets.",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "component_name",
+											"value": "timeline_main,carousel_main",
+											"description": "The componet(s) name(s) listed here will be associated with all the assets uploaded in this request. Comma Sepparated Value.",
+											"type": "text"
+										},
+										{
+											"key": "field_not_avaliable",
+											"description": "Enable this field to watch the error.",
+											"type": "file",
+											"src": "/home/rosa/Documents/dev/SA_rest_api/public/assets_to_upload_during_tests/work.jpg",
+											"disabled": true
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/resource",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"resource"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "383"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"17f-n4LahkiSGW7OOQLqUC4Pjp87kRI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 May 2020 19:07:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 2,\n    \"message\": \"resource inserted\",\n    \"items\": [\n        {\n            \"created\": true,\n            \"component_name\": [\n                \"timeline_main\",\n                \"carousel_main\"\n            ],\n            \"type\": \"image/jpeg\",\n            \"route\": \"/assets/9d0d208b/work.jpg\",\n            \"width\": 1080,\n            \"height\": 1287\n        },\n        {\n            \"created\": true,\n            \"component_name\": [\n                \"timeline_main\",\n                \"carousel_main\"\n            ],\n            \"type\": \"image/png\",\n            \"route\": \"/assets/50df1d82/polaroid.png\",\n            \"width\": 451,\n            \"height\": 530\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Filter Resource",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/resource?type=image/jpeg",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"resource"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "route",
+									"description": "Attrs. to show from the table \"Resource\" listed in this field . Comma sepparated values.",
+									"disabled": true
+								},
+								{
+									"key": "exclude",
+									"value": "id_rsc",
+									"description": "Elements to exclude from the results. Comma seppareted value.",
+									"disabled": true
+								},
+								{
+									"key": "not_contain",
+									"value": "id_talent",
+									"description": "Query nullable attrributes, consult the ERD. Comma sepparete value.",
+									"disabled": true
+								},
+								{
+									"key": "component_name",
+									"value": "video_mid",
+									"description": "Name of the component associated with the Work.",
+									"disabled": true
+								},
+								{
+									"key": "id_talent",
+									"value": "4144754b-ed43-4552-ae12-49faa18d60c7",
+									"description": "Talent identifier associated with the Work.",
+									"disabled": true
+								},
+								{
+									"key": "id_work",
+									"value": "24b40309-d1ae-4e1c-ac8f-4784dfe13ec9",
+									"description": "Work identifier to track.",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "image/jpeg",
+									"description": "Type of the resource to fetch: video | image/jpeg"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Filter Resource",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/resource?id_talent=4144754b-ed43-4552-ae12-49faa18d60c7\n",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"resource"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "route",
+											"description": "Attrs. to show from the table \"Resource\" listed in this field . Comma sepparated values.",
+											"disabled": true
+										},
+										{
+											"key": "exclude",
+											"value": "id_rsc",
+											"description": "Elements to exclude from the results. Comma seppareted value.",
+											"disabled": true
+										},
+										{
+											"key": "not_contain",
+											"value": "id_talent",
+											"description": "Query nullable attrributes, consult the ERD. Comma sepparete value.",
+											"disabled": true
+										},
+										{
+											"key": "component_name",
+											"value": "video_mid",
+											"description": "Name of the component associated with the Work.",
+											"disabled": true
+										},
+										{
+											"key": "id_talent",
+											"value": "4144754b-ed43-4552-ae12-49faa18d60c7\n",
+											"description": "Talent identifier associated with the Work."
+										},
+										{
+											"key": "id_work",
+											"value": "6328f97d-efa3-457e-a1a4-2f120caf689c",
+											"description": "Work identifier to track.",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "image/jpeg",
+											"description": "Type of the resource to fetch: video | image/jpeg",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1168"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"490-6PFVgBai0eAmRR/qB2ag//qHIN0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 May 2020 14:15:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 3,\n    \"message\": \"object found\",\n    \"item\": {\n        \"count\": 6,\n        \"rows\": [\n            {\n                \"id_rsc\": \"441c892b-ae0a-4afc-9e94-74093c261286\",\n                \"id_talent\": \"4144754b-ed43-4552-ae12-49faa18d60c7\",\n                \"id_work\": \"24b40309-d1ae-4e1c-ac8f-4784dfe13ec9\",\n                \"route\": \"/assets/61ae7434/work.jpg\",\n                \"type\": \"image/jpeg\",\n                \"width\": 1080,\n                \"height\": 1287,\n                \"Components\": [\n                    {\n                        \"name\": \"carousel_main\"\n                    },\n                    {\n                        \"name\": \"carousel_work\"\n                    }\n                ]\n            },\n            {\n                \"id_rsc\": \"4d6988ec-3418-438a-92b1-e6afdbeeebbe\",\n                \"id_talent\": \"4144754b-ed43-4552-ae12-49faa18d60c7\",\n                \"id_work\": \"24b40309-d1ae-4e1c-ac8f-4784dfe13ec9\",\n                \"route\": \"/assets/0f9b5557/polaroid.png\",\n                \"type\": \"image/png\",\n                \"width\": 451,\n                \"height\": 530,\n                \"Components\": [\n                    {\n                        \"name\": \"carousel_main\"\n                    },\n                    {\n                        \"name\": \"carousel_work\"\n                    }\n                ]\n            },\n            {\n                \"id_rsc\": \"bb73268b-2ed8-4c25-975d-4c686b8fb065\",\n                \"id_talent\": \"4144754b-ed43-4552-ae12-49faa18d60c7\",\n                \"id_work\": null,\n                \"route\": \"/assets/855f4d03/work.jpg\",\n                \"type\": \"image/jpeg\",\n                \"width\": 1080,\n                \"height\": 1287,\n                \"Components\": [\n                    {\n                        \"name\": \"carousel_main\"\n                    }\n                ]\n            },\n            {\n                \"id_rsc\": \"e886914a-8a60-4626-95ed-b10a5b31eee5\",\n                \"id_talent\": \"4144754b-ed43-4552-ae12-49faa18d60c7\",\n                \"id_work\": null,\n                \"route\": \"/assets/51a850bb/cover.jpg\",\n                \"type\": \"image/jpeg\",\n                \"width\": 1080,\n                \"height\": 1350,\n                \"Components\": [\n                    {\n                        \"name\": \"talent_cover\"\n                    }\n                ]\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Resource",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_rsc",
+									"value": "asd",
+									"description": "a8745f67-1475-4caa-b09f-09c8aeb9bebc\n",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "route",
+									"value": "asd",
+									"description": "/assets/e6450f8c/cover.jpg",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "fake",
+									"value": "fake",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/resource/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"resource",
+								"update"
+							]
+						},
+						"description": "This endpoint it is under construction."
+					},
+					"response": [
+						{
+							"name": "Update - Resource Posiition",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_rsc",
+											"value": "asd",
+											"description": "a8745f67-1475-4caa-b09f-09c8aeb9bebc\n",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "route",
+											"value": "/assets/e6450f8c/cover.jpg",
+											"type": "text"
+										},
+										{
+											"key": "position",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "component_name",
+											"value": "landing_page",
+											"type": "text",
+											"disabled": true
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/resource/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"resource",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "113"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"71-/iXK/sTww8ezysaHj0q+Iegz1s8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jun 2020 20:47:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 5,\n    \"message\": \"object updated\",\n    \"item\": {\n        \"route\": \"/assets/e6450f8c/cover.jpg\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Resource",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_rsc",
+									"value": "c47900af-3996-4905-99ef-a227a1bf02ad",
+									"description": "Unique identifier of the row to delete.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "id_talent",
+									"value": "52fa8dc1-cf54-47fa-a80d-981f6d0de360",
+									"description": "Identifier of the row to delete.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "id_work",
+									"value": "6328f97d-efa3-457e-a1a4-2f120caf689c",
+									"description": "Identifier of the row to delete.",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/resource",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"resource"
+							]
+						},
+						"description": "Endpoint to delete resources.\n<br/> <br/>\n\nDelete by [**id_rsc** | **id_talent** | **id_work**]. Keep the body empty for delete all reosurces.\n<br/> <br/>\n\nThat is the precedence order of selection for an attribute to lead a delete query.\n<br/> <br/>\n\nFor example: \n\n- If the client write \"id_work\" and \"id_rsc\" as arguments for a request delete, will be selected \"id_rsc\" instead of \"id_work\"."
+					},
+					"response": [
+						{
+							"name": "Delete Resource - Content Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_rsc",
+											"value": "e886914a-8a60-4626-95ed-b10a5b31eee5",
+											"description": "Unique identifier of the row to delete.",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "id_talent",
+											"value": "4144754b-ed43-4552-ae12-49faa18d60c7",
+											"description": "Identifier of the row to delete.",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "id_work",
+											"value": "6ebd05db-c8c1-402c-a9b3-566c984752a8",
+											"description": "Identifier of the row to delete.",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/resource",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"resource"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8a-YKHDOUkevyCpzEPqI+2mtjDl1v8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 May 2020 15:30:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"fail\",\n    \"http_code\": 400,\n    \"code\": 25,\n    \"message\": \"syntax error during delete\",\n    \"error\": [\n        {\n            \"error\": \"Error: content searched not found\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Delete Resource",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_rsc",
+											"value": "c47900af-3996-4905-99ef-a227a1bf02ad",
+											"description": "Unique identifier of the row to delete.",
+											"type": "text"
+										},
+										{
+											"key": "id_talent",
+											"value": "52fa8dc1-cf54-47fa-a80d-981f6d0de360",
+											"description": "Identifier of the row to delete.",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "id_work",
+											"value": "6328f97d-efa3-457e-a1a4-2f120caf689c",
+											"description": "Identifier of the row to delete.",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/resource",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"resource"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-5SB0VcBe+nSGeCOW7N3cgEHjx94\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 May 2020 15:31:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 5,\n    \"message\": \"object(s) deleted, count: 1\"\n}"
+						}
+					]
+				}
+			],
+			"description": "## Resource\n---\nThis collection will manage the set of rows from the table **Resource**,\nfor more information about this table, follow the UML - ERD image from \nthe folder \"/utils\".",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "457b81e0-7087-44de-8314-e356b9244343",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ecb85d1-7031-40ef-aacd-8296a3ca3416",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Talent",
+			"item": [
+				{
+					"name": "Create a  Talent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Jhane",
+									"description": "Attr. for the talent.",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "Doe",
+									"description": "Another attr. for the talent.",
+									"type": "text"
+								},
+								{
+									"key": "instagram",
+									"value": "@jhane_doe",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "women",
+									"type": "text"
+								},
+								{
+									"key": "avaliable",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "development",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "cover",
+									"type": "file",
+									"src": "/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/cover.jpg"
+								},
+								{
+									"key": "portfolio",
+									"type": "file",
+									"src": [
+										"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/portfolio2.jpg",
+										"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/portfolio.jpg"
+									]
+								},
+								{
+									"key": "polaroid",
+									"type": "file",
+									"src": [
+										"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/polaroid.png",
+										"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/polaroid2.jpg"
+									]
+								},
+								{
+									"key": "video",
+									"description": "Only vaid extensions.",
+									"type": "file",
+									"src": "/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/avita_fake_test.mp4",
+									"disabled": true
+								},
+								{
+									"key": "unexpected_field",
+									"description": "Enable this attr. to return an error.",
+									"type": "file",
+									"src": [
+										"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.two",
+										"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.one"
+									],
+									"disabled": true
+								},
+								{
+									"key": "hair",
+									"value": "Dark blonde",
+									"type": "text"
+								},
+								{
+									"key": "eyes",
+									"value": "Blue",
+									"type": "text"
+								},
+								{
+									"key": "height",
+									"value": "176",
+									"type": "text"
+								},
+								{
+									"key": "bust",
+									"value": "77",
+									"type": "text"
+								},
+								{
+									"key": "waist",
+									"value": "58",
+									"type": "text"
+								},
+								{
+									"key": "hips",
+									"value": "86",
+									"type": "text"
+								},
+								{
+									"key": "shoes",
+									"value": "38",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/talent",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"talent"
+							]
+						},
+						"description": "Check the ERD to follow the entire attributes need for the Talent creation."
+					},
+					"response": [
+						{
+							"name": "Create a  Talent",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "a",
+											"description": "Attr. for the talent.",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "dev",
+											"description": "Another attr. for the talent.",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "women",
+											"type": "text"
+										},
+										{
+											"key": "avaliable",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "development",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "cover",
+											"type": "file",
+											"src": "/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/cover.jpg"
+										},
+										{
+											"key": "portfolio",
+											"description": "Only valid extensions.",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/portfolio.jpg",
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/portfolio3.jpg"
+											]
+										},
+										{
+											"key": "portfolio",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.two",
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.one"
+											],
+											"disabled": true
+										},
+										{
+											"key": "polaroid",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/portfolio2.jpg",
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/polaroid.png"
+											],
+											"disabled": true
+										},
+										{
+											"key": "video",
+											"description": "Only vaid extensions.",
+											"type": "file",
+											"src": "/home/rosa/Documents/dev/SA_rest_api/public/assets_to_upload_during_tests/avita_fake_test.mp4",
+											"disabled": true
+										},
+										{
+											"key": "unexpected_field",
+											"description": "Enable this attr. to return an error.",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.two",
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.one"
+											],
+											"disabled": true
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/talent",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"talent"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "511"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ff-cpAYGG6Rjk/hgDTB8hvroZlnlN0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 May 2020 23:01:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 2,\n    \"message\": \"Talent inserted with slug: a-dev\",\n    \"items\": [\n        {\n            \"created\": true,\n            \"component_name\": \"talent_cover\",\n            \"type\": \"image/jpeg\",\n            \"route\": \"/assets/757262ae/cover.jpg\",\n            \"width\": 1080,\n            \"height\": 1350\n        },\n        {\n            \"created\": true,\n            \"component_name\": \"talent_portfolio\",\n            \"type\": \"image/jpeg\",\n            \"route\": \"/assets/fe5568ea/portfolio.jpg\",\n            \"width\": 1080,\n            \"height\": 1287\n        },\n        {\n            \"created\": true,\n            \"component_name\": \"talent_portfolio\",\n            \"type\": \"image/jpeg\",\n            \"route\": \"/assets/1ef708c2/portfolio3.jpg\",\n            \"width\": 1080,\n            \"height\": 1350\n        }\n    ]\n}"
+						},
+						{
+							"name": "Create a  Talent - Complete Info",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "A",
+											"description": "Attr. for the talent.",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "B",
+											"description": "Another attr. for the talent.",
+											"type": "text"
+										},
+										{
+											"key": "instagram",
+											"value": "https://instagram.com/https://instagram.com/@instagram",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "women",
+											"type": "text"
+										},
+										{
+											"key": "avaliable",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "development",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "cover",
+											"type": "file",
+											"src": "/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/Londone/cover.jpg"
+										},
+										{
+											"key": "portfolio",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/portfolio2.jpg",
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/portfolio.jpg"
+											]
+										},
+										{
+											"key": "polaroid",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										},
+										{
+											"key": "video",
+											"description": "Only vaid extensions.",
+											"type": "file",
+											"src": "/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/avita_fake_test.mp4",
+											"disabled": true
+										},
+										{
+											"key": "unexpected_field",
+											"description": "Enable this attr. to return an error.",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.two",
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.one"
+											],
+											"disabled": true
+										},
+										{
+											"key": "hair",
+											"value": "Dark blonde",
+											"type": "text"
+										},
+										{
+											"key": "eyes",
+											"value": "Blue",
+											"type": "text"
+										},
+										{
+											"key": "height",
+											"value": "176 / 5'9 1⁄2''",
+											"type": "text"
+										},
+										{
+											"key": "bust",
+											"value": "77 / 30 1⁄2''",
+											"type": "text"
+										},
+										{
+											"key": "waist",
+											"value": "58 / 23''",
+											"type": "text"
+										},
+										{
+											"key": "hips",
+											"value": "86 / 34''",
+											"type": "text"
+										},
+										{
+											"key": "shoes",
+											"value": "38,5 EU / 7 1/2 US / 5 1/2 UK",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/talent",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"talent"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "548"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"224-RKbvo0Soa7aLzhpy3tTao/v2Q84\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jun 2020 16:40:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 2,\n    \"message\": \"Talent inserted with slug: a-b-3\",\n    \"items\": [\n        {\n            \"created\": true,\n            \"component_name\": \"talent_cover\",\n            \"type\": \"image/jpeg\",\n            \"route\": \"/assets/7ffebf01/cover.jpg\",\n            \"width\": 750,\n            \"height\": 942,\n            \"position\": 0\n        },\n        {\n            \"created\": true,\n            \"component_name\": \"talent_portfolio\",\n            \"type\": \"image/jpeg\",\n            \"route\": \"/assets/9d10e16f/portfolio2.jpg\",\n            \"width\": 1080,\n            \"height\": 1350,\n            \"position\": 0\n        },\n        {\n            \"created\": true,\n            \"component_name\": \"talent_portfolio\",\n            \"type\": \"image/jpeg\",\n            \"route\": \"/assets/c020424d/portfolio.jpg\",\n            \"width\": 1080,\n            \"height\": 1287,\n            \"position\": 1\n        }\n    ]\n}"
+						},
+						{
+							"name": "Create a  Talent - Watch the headers",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiNGNlZDE1MjItNjZhYi00ZjkxLTk1YzgtYWVlNTUxM2ZiMjE5IiwiZW1haWwiOiJqaG9uIiwiaGFzaCI6IjE5YjcyNmQ0MDQ2YjQyYWI2YTAzMGFmZjA2M2ZmZTQzMjExMTRlZjcyNTE5NWEyZTc4NWM1OTc5OTdlY2Q3MjQiLCJpYXQiOjE1OTExOTEyMTgsImV4cCI6MTU5MTIyMDAxOH0.GtvH2LCYXzvfoCdlgGukdj0grTsCRw5rlpM2RCNjlHQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Aivita",
+											"description": "Attr. for the talent.",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "Muze",
+											"description": "Another attr. for the talent.",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "women",
+											"type": "text"
+										},
+										{
+											"key": "avaliable",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "development",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "cover",
+											"type": "file",
+											"src": "/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/Londone/cover.jpg"
+										},
+										{
+											"key": "portfolio",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/Aivita/1.jpg",
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/Aivita/4.jpg",
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/Aivita/5.jpg"
+											]
+										},
+										{
+											"key": "polaroid",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "video",
+											"description": "Only vaid extensions.",
+											"type": "file",
+											"src": "/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/avita_fake_test.mp4",
+											"disabled": true
+										},
+										{
+											"key": "unexpected_field",
+											"description": "Enable this attr. to return an error.",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.two",
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.one"
+											],
+											"disabled": true
+										},
+										{
+											"key": "hair",
+											"value": "Dark blonde",
+											"type": "text"
+										},
+										{
+											"key": "eyes",
+											"value": "Blue",
+											"type": "text"
+										},
+										{
+											"key": "height",
+											"value": "176 / 5'9 1⁄2''",
+											"type": "text"
+										},
+										{
+											"key": "bust",
+											"value": "77 / 30 1⁄2''",
+											"type": "text"
+										},
+										{
+											"key": "waist",
+											"value": "58 / 23''",
+											"type": "text"
+										},
+										{
+											"key": "hips",
+											"value": "86 / 34''",
+											"type": "text"
+										},
+										{
+											"key": "shoes",
+											"value": "38,5 EU / 7 1/2 US / 5 1/2 UK",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/talent",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"talent"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Create a  Talent - In case of upload video as part from the resources",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "a2",
+											"description": "Attr. for the talent.",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "dev",
+											"description": "Another attr. for the talent.",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "women",
+											"type": "text"
+										},
+										{
+											"key": "avaliable",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "development",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "cover",
+											"type": "file",
+											"src": "/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/cover.jpg"
+										},
+										{
+											"key": "portfolio",
+											"description": "Only valid extensions.",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/portfolio.jpg",
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/portfolio3.jpg"
+											],
+											"disabled": true
+										},
+										{
+											"key": "portfolio",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.two",
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.one"
+											],
+											"disabled": true
+										},
+										{
+											"key": "polaroid",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/portfolio2.jpg",
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/polaroid.png"
+											],
+											"disabled": true
+										},
+										{
+											"key": "video",
+											"description": "Only vaid extensions.",
+											"type": "file",
+											"src": "/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/avita_fake_test.mp4"
+										},
+										{
+											"key": "unexpected_field",
+											"description": "Enable this attr. to return an error.",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.two",
+												"/home/diuble-lig/Documents/SYSTEM/system_agency_2020/public/assets_to_upload_during_tests/fake.one"
+											],
+											"disabled": true
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/talent",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"talent"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "367"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16f-UPw28b1OZ87Dg0L7QQldfSs4GfE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 May 2020 23:26:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 2,\n    \"message\": \"Talent inserted with slug: a2-dev\",\n    \"items\": [\n        {\n            \"created\": true,\n            \"component_name\": \"talent_cover\",\n            \"type\": \"image/jpeg\",\n            \"route\": \"/assets/f4ffc4a7/cover.jpg\",\n            \"width\": 1080,\n            \"height\": 1350\n        },\n        {\n            \"created\": true,\n            \"component_name\": \"talent_video\",\n            \"type\": \"video\",\n            \"route\": \"/assets/7dd2235b/avita_fake_test.mp4\",\n            \"width\": null,\n            \"height\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Filter Talent",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/talent?slug=jhane-doe",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"talent"
+							],
+							"query": [
+								{
+									"key": "id_talent",
+									"value": "4144754b-ed43-4552-ae12-49faa18d60c7",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "a2",
+									"disabled": true
+								},
+								{
+									"key": "include",
+									"value": "id_talent",
+									"description": "Attrs. to show from the table \"Work\" listed in this field . Comma sepparated values.",
+									"disabled": true
+								},
+								{
+									"key": "exclude",
+									"value": "avaliable,instagram",
+									"description": "Elements to exclude from the results. Comma seppareted value.",
+									"disabled": true
+								},
+								{
+									"key": "not_contain",
+									"value": "height",
+									"description": "Query nullable attrributes, consult the ERD. Comma sepparete value.",
+									"disabled": true
+								},
+								{
+									"key": "development",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "slug",
+									"value": "jhane-doe"
+								}
+							]
+						},
+						"description": "If the query it is empty -> scan the Talents. The fecth will return the Talent info. and the Resources asociated to him.\n<br/><br/>\n\nQuery with args. -> filter by args.\n<br/><br/>"
+					},
+					"response": [
+						{
+							"name": "Filter Talent - No result",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/talent?id_talent=4144754b-ed43-4552-ae12-49faa18d60c7",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"talent"
+									],
+									"query": [
+										{
+											"key": "id_talent",
+											"value": "4144754b-ed43-4552-ae12-49faa18d60c7"
+										},
+										{
+											"key": "name",
+											"value": "a2",
+											"disabled": true
+										},
+										{
+											"key": "include",
+											"value": "id_talent",
+											"description": "Attrs. to show from the table \"Work\" listed in this field . Comma sepparated values.",
+											"disabled": true
+										},
+										{
+											"key": "exclude",
+											"value": "avaliable,instagram",
+											"description": "Elements to exclude from the results. Comma seppareted value.",
+											"disabled": true
+										},
+										{
+											"key": "not_contain",
+											"value": "height",
+											"description": "Query nullable attrributes, consult the ERD. Comma sepparete value.",
+											"disabled": true
+										},
+										{
+											"key": "development",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "slug",
+											"value": "a-dev-2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "98"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"62-8Xm34HKc6WqWNh7GS/yUYle6mhY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 May 2020 15:26:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 4,\n    \"message\": \"object not found\",\n    \"item\": {\n        \"count\": 0,\n        \"rows\": []\n    }\n}"
+						},
+						{
+							"name": "Filter Talent",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/talent?slug=a-b-3",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"talent"
+									],
+									"query": [
+										{
+											"key": "id_talent",
+											"value": "4144754b-ed43-4552-ae12-49faa18d60c7",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "a2",
+											"disabled": true
+										},
+										{
+											"key": "include",
+											"value": "id_talent",
+											"description": "Attrs. to show from the table \"Work\" listed in this field . Comma sepparated values.",
+											"disabled": true
+										},
+										{
+											"key": "exclude",
+											"value": "avaliable,instagram",
+											"description": "Elements to exclude from the results. Comma seppareted value.",
+											"disabled": true
+										},
+										{
+											"key": "not_contain",
+											"value": "height",
+											"description": "Query nullable attrributes, consult the ERD. Comma sepparete value.",
+											"disabled": true
+										},
+										{
+											"key": "development",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "slug",
+											"value": "a-b-3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "916"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"394-4bReF4Pd9p0Ezp6VBetnqq9xNvI\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jun 2020 16:41:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 3,\n    \"message\": \"object found\",\n    \"item\": {\n        \"count\": 1,\n        \"rows\": [\n            {\n                \"id_talent\": \"e7876f44-5052-426c-b89b-37bfc866caac\",\n                \"name\": \"A\",\n                \"last_name\": \"B\",\n                \"gender\": \"women\",\n                \"height\": \"176 / 5'9 1⁄2''\",\n                \"bust\": \"77 / 30 1⁄2''\",\n                \"waist\": \"58 / 23''\",\n                \"hips\": \"86 / 34''\",\n                \"shoes\": \"38,5 EU / 7 1/2 US / 5 1/2 UK\",\n                \"eyes\": \"Blue\",\n                \"hair\": \"Dark blonde\",\n                \"instagram\": \"instagram\",\n                \"bio\": null,\n                \"avaliable\": true,\n                \"development\": true,\n                \"slug\": \"a-b-3\",\n                \"pdf_route\": \"/pdf/a-b-3.pdf\",\n                \"Resources\": [\n                    {\n                        \"route\": \"/assets/7ffebf01/cover.jpg\",\n                        \"type\": \"image/jpeg\",\n                        \"width\": 750,\n                        \"height\": 942,\n                        \"position\": 0,\n                        \"Components\": [\n                            {\n                                \"name\": \"talent_cover\"\n                            }\n                        ]\n                    },\n                    {\n                        \"route\": \"/assets/c020424d/portfolio.jpg\",\n                        \"type\": \"image/jpeg\",\n                        \"width\": 1080,\n                        \"height\": 1287,\n                        \"position\": 1,\n                        \"Components\": [\n                            {\n                                \"name\": \"talent_portfolio\"\n                            }\n                        ]\n                    },\n                    {\n                        \"route\": \"/assets/9d10e16f/portfolio2.jpg\",\n                        \"type\": \"image/jpeg\",\n                        \"width\": 1080,\n                        \"height\": 1350,\n                        \"position\": 0,\n                        \"Components\": [\n                            {\n                                \"name\": \"talent_portfolio\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Filter Talent - By Slug",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "multipart/form-data",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "slug",
+											"value": "a-b",
+											"type": "text"
+										},
+										{
+											"key": "exclude",
+											"value": "avaliable,instagram",
+											"description": "Elements to exlude from the results. Comma seppareted value.",
+											"type": "text"
+										},
+										{
+											"key": "not_contain",
+											"value": "height",
+											"description": "Query nullable attrributes, consult the ERD. Coma sepparete value.",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "f",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "development",
+											"value": "true",
+											"type": "text",
+											"disabled": true
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/talent",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"talent"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "747"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2eb-mcOAbAPbTK4XMLG2HcByGI0OBVA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 02 May 2020 17:40:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 3,\n    \"message\": \"object found\",\n    \"item\": {\n        \"count\": 1,\n        \"rows\": [\n            {\n                \"id_talent\": \"52fa8dc1-cf54-47fa-a80d-981f6d0de360\",\n                \"name\": \"a\",\n                \"last_name\": \"b\",\n                \"gender\": \"men\",\n                \"height\": null,\n                \"bust\": null,\n                \"waist\": null,\n                \"hips\": null,\n                \"shoes\": null,\n                \"eyes\": null,\n                \"hair\": null,\n                \"bio\": null,\n                \"development\": true,\n                \"slug\": \"a-b\",\n                \"Resources\": [\n                    {\n                        \"route\": \"/assets/d9b2e4e0/cover.jpg\",\n                        \"type\": \"image/jpeg\",\n                        \"Components\": [\n                            {\n                                \"name\": \"talent_cover\"\n                            }\n                        ]\n                    },\n                    {\n                        \"route\": \"/assets/eab664e1/portfolio.jpg\",\n                        \"type\": \"image/jpeg\",\n                        \"Components\": [\n                            {\n                                \"name\": \"talent_portfolio\"\n                            }\n                        ]\n                    },\n                    {\n                        \"route\": \"/assets/7a44a7bc/portfolio2.jpg\",\n                        \"type\": \"image/jpeg\",\n                        \"Components\": [\n                            {\n                                \"name\": \"talent_portfolio\"\n                            }\n                        ]\n                    },\n                    {\n                        \"route\": \"/assets/9e0410b5/avita_fake_test.mp4\",\n                        \"type\": \"video\",\n                        \"Components\": [\n                            {\n                                \"name\": \"talent_video\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Filter Talent by section",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/talent/section?gender=women",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"talent",
+								"section"
+							],
+							"query": [
+								{
+									"key": "development",
+									"value": "false",
+									"description": "true | false",
+									"disabled": true
+								},
+								{
+									"key": "gender",
+									"value": "women",
+									"description": "women | men"
+								}
+							]
+						},
+						"description": "This endpoint will let you fetch Talents by section.\n<br/> <br/>\n\n\nThis filter will retrieve a tiny set of elements for every Talent, and only the necessary ones for the talent preview:\n<br/>\n- name\n- last_name\n- slug\n- cover image"
+					},
+					"response": [
+						{
+							"name": "Example Response.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/talent/section/men",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"talent",
+										"section",
+										"men"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "283"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11b-35/etV8watyrgKs0uRrfS8w3MKQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 May 2020 19:47:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 3,\n    \"message\": \"object found\",\n    \"item\": {\n        \"count\": 2,\n        \"rows\": [\n            {\n                \"slug\": \"a-a\",\n                \"name\": \"a\",\n                \"last_name\": \"a\",\n                \"Resources\": [\n                    {\n                        \"route\": \"/assets/ece443d7/cover.jpg\"\n                    }\n                ]\n            },\n            {\n                \"slug\": \"a-b\",\n                \"name\": \"a\",\n                \"last_name\": \"b\",\n                \"Resources\": [\n                    {\n                        \"route\": \"/assets/d9b2e4e0/cover.jpg\"\n                    }\n                ]\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Filter Talent by section - Empty",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/talent/section",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"talent",
+										"section"
+									],
+									"query": [
+										{
+											"key": "development",
+											"value": "true",
+											"description": "true | false",
+											"disabled": true
+										},
+										{
+											"key": "gender",
+											"value": "women",
+											"description": "women | men",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "98"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"62-8Xm34HKc6WqWNh7GS/yUYle6mhY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 May 2020 17:50:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 4,\n    \"message\": \"object not found\",\n    \"item\": {\n        \"count\": 0,\n        \"rows\": []\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update a Talent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_talent",
+									"value": "a45525a3-390d-4ecc-9367-0256e10611ea",
+									"description": "Talent identifier.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "slug",
+									"value": "a-b-2",
+									"description": "Slug of the Talent.",
+									"type": "text"
+								},
+								{
+									"key": "instagram",
+									"value": "ig",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "eyes",
+									"value": "blue",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "a9000",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/talent/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"talent",
+								"update"
+							]
+						},
+						"description": "The upgrades of the argumentes coming from the body.\n<br/><br/>\n\nThe client can pass *id_talent* or *slug* as arguments to find the correct row for update. If both are passed as arguments for the query update will be catch first *id_talent*.\n<br/><br/>\n\nThe rest of the body will contain arguments/attrs. to update."
+					},
+					"response": [
+						{
+							"name": "Update a Talent",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_talent",
+											"value": "a45525a3-390d-4ecc-9367-0256e10611ea",
+											"description": "Talent identifier.",
+											"type": "text"
+										},
+										{
+											"key": "sluig",
+											"value": "a-b",
+											"description": "Slug of the Talent.",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "instagram",
+											"value": "ig",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "eyes",
+											"value": "blue",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "a9000",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/talent/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"talent",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "127"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7f-ACv7nBWs8WH0xGIhIqaxG2fcmyc\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 May 2020 02:59:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 5,\n    \"message\": \"object updated\",\n    \"item\": {\n        \"id_talent\": \"a45525a3-390d-4ecc-9367-0256e10611ea\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Talent",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_talent",
+									"value": "9b0a58e8-d7fd-4711-a8a7-4e4929ac79de",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "slug",
+									"value": "a-b",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/talent",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"talent"
+							]
+						},
+						"description": "Endpoint to delete talents.\n<br/><br/> \n\nDelete by [**id_talent** | **slug**]. Keep the body empty for delete all works.\n<br/><br/> \n\nThat is the precedence order of selection for an attribute to lead a delete query.\n<br/> <br/>\n\nFor example: \n\n- If the client write \"slug\" and \"id_talent\" as arguments for a request delete, will be selected \"id_talent\" instead of \"slug\"."
+					},
+					"response": [
+						{
+							"name": "Delete Talent",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_talent",
+											"value": "9b0a58e8-d7fd-4711-a8a7-4e4929ac79de",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "slug",
+											"value": "aivita-muze",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/talent",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"talent"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-SWgdWKCfZBsSKyY11cGZ1phfVrU\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Jun 2020 13:33:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 6,\n    \"message\": \"object(s) deleted, count: 1\"\n}"
+						}
+					]
+				}
+			],
+			"description": "## Talent\n---\nThis collection will be usefull for manage the rows from the table **Talent**\n (read the UML - ERD at the \"/utils\" folder from this repository).\n\n### Hint\n\nThis backend will have a set of triggers that manage the **slug** \nattributes allowed from this table. Follow the file  name */db/2_trigger...*\nfor more information about the functions and the trigger that affect \nthis table.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a3e10df5-a1d2-4d5a-93c0-b1616c53924b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e4522bb8-759f-4245-9a8e-d83923a82e4a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Work",
+			"item": [
+				{
+					"name": "Create Work",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "talent_name",
+									"value": "Adel Iudina",
+									"description": "Talent Name that appear in the work. [Required]",
+									"type": "text"
+								},
+								{
+									"key": "casting",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "client_name",
+									"value": "Harper's Bazaar Ukraine",
+									"description": "Description of the Work row. [Required]",
+									"type": "text"
+								},
+								{
+									"key": "designer_name",
+									"value": "Giorgio Armani ",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "photographer",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "stylist_name",
+									"value": "Tomislav Blaic",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Aivita Muze features in Dior Magazine's celebration of Spring, photographed by Liz Collins.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "background_reference",
+									"value": "systemagency.com",
+									"description": "Available on Landing Page only",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "position",
+									"value": "15",
+									"description": "Position of the work, related with the render order.",
+									"type": "text"
+								},
+								{
+									"key": "work_cover",
+									"type": "file",
+									"src": "/home/diuble-lig/Documents/SYSTEM/web_site_assests/NEWS - WORKS/carousel/n15.jpg"
+								},
+								{
+									"key": "work_photoset",
+									"description": "Available on Work Page only",
+									"type": "file",
+									"src": [
+										"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/portfolio2.jpg",
+										"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/portfolio3.jpg",
+										"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/polaroid.png",
+										"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/polaroid2.jpg"
+									],
+									"disabled": true
+								},
+								{
+									"key": "main_component",
+									"value": "carousel_main",
+									"type": "text"
+								},
+								{
+									"key": "cover_component_name",
+									"value": "work_cover,carousel_main",
+									"description": "component destiny of the cover, CSV format",
+									"type": "text"
+								},
+								{
+									"key": "photoset_component_name",
+									"value": "work_photoset,timeline_work",
+									"description": "component destiny of the photoset, CSV format",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/work",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"work"
+							]
+						},
+						"description": "Endpoint for Create a work.\n<br/><br/>\n\nThis endpoint will let the client to **create only one work on each request**. More than one element uploaded at the body will result into a syntax error.\n<br/><br/>\n\nWatch the **ERD** to follow the complete list of arguments avaliable or need it, to create a new row at the Work table.\n<br/><br/>\n\nSet of components to store the resources:\n- carousel_main\n- carousel_work\n- timeline_main\n- timeline_work\n- video_main\n- work_cover\n- work_photoset"
+					},
+					"response": [
+						{
+							"name": "Create Work - Error #1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "work",
+											"description": "Elements to update as a new work.",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/work.jpg",
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/polaroid.png"
+											]
+										},
+										{
+											"key": "invalid_resource",
+											"description": "Enable this attr. to watch the resulting error.",
+											"type": "file",
+											"src": "/home/rosa/Documents/dev/SA_rest_api/public/assets_to_upload_during_tests/cover.jpg",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "titlle work",
+											"description": "Title of the Work to insert.",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Work listed on carousel main | work.",
+											"description": "Description of the Work row.",
+											"type": "text"
+										},
+										{
+											"key": "id_talent",
+											"value": "4144754b-ed43-4552-ae12-49faa18d60c7",
+											"description": "[Optional] If a talent appear in this Work, then add the id and reference to it.",
+											"type": "text"
+										},
+										{
+											"key": "component_name",
+											"value": "carousel_main,carousel_work",
+											"description": "The rsc. from this Work will be associeted with this component name. CSV",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/work",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"work"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "146"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"92-fYSQh7hl+ud6/MoAqWDVop/BK+A\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 May 2020 20:43:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"fail\",\n    \"http_code\": 413,\n    \"code\": 100,\n    \"message\": \"resource not saved\",\n    \"error\": [\n        {\n            \"err\": \"Works can only accept one resource on each request\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Create Work",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "talent_name",
+											"value": "A B",
+											"description": "Talent Name that appear in the work",
+											"type": "text"
+										},
+										{
+											"key": "client_name",
+											"value": "nasa",
+											"description": "Description of the Work row.",
+											"type": "text"
+										},
+										{
+											"key": "designer_name",
+											"value": "A B",
+											"type": "text"
+										},
+										{
+											"key": "stylist_name",
+											"value": "nasa",
+											"type": "text"
+										},
+										{
+											"key": "background_reference",
+											"value": "google.com",
+											"description": "Available on Landing Page only",
+											"type": "text"
+										},
+										{
+											"key": "position",
+											"value": "0",
+											"description": "Position of the work, related with the render order.",
+											"type": "text"
+										},
+										{
+											"key": "work_cover",
+											"description": "The cover can be one IMG or VID",
+											"type": "file",
+											"src": "/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/work.jpg"
+										},
+										{
+											"key": "work_photoset",
+											"description": "Available on Work Page only",
+											"type": "file",
+											"src": [
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/webp.webp",
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/webp2.webp",
+												"/home/diuble-lig/Documents/SA_rest_api/public/assets_to_upload_during_tests/SA_small.jpeg"
+											]
+										},
+										{
+											"key": "cover_component_name",
+											"value": "work_cover,timeline_work",
+											"description": "component destiny of the cover CSV format",
+											"type": "text"
+										},
+										{
+											"key": "photoset_component_name",
+											"value": "work_photoset,timeline_work",
+											"description": "componet destiny of the photoset CSV format",
+											"type": "text"
+										},
+										{
+											"key": "main_component",
+											"value": "timeline_work",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/work",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"work"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "749"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2ed-dawFp/xuc01/Z59eURKykd4G/aE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jun 2020 14:43:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 2,\n    \"message\": \"Work inserted with slug: a-b-2\",\n    \"items\": [\n        {\n            \"created\": true,\n            \"component_name\": [\n                \"work_cover\",\n                \"timeline_work\"\n            ],\n            \"type\": \"image/jpeg\",\n            \"route\": \"/assets/452770c8/work.jpg\",\n            \"width\": 1080,\n            \"height\": 1287,\n            \"position\": 0\n        },\n        {\n            \"created\": true,\n            \"component_name\": [\n                \"work_photoset\",\n                \"timeline_work\"\n            ],\n            \"type\": \"image/jpeg\",\n            \"route\": \"/assets/94a7da61/webp.jpeg\",\n            \"width\": 320,\n            \"height\": 241,\n            \"position\": 0\n        },\n        {\n            \"created\": true,\n            \"component_name\": [\n                \"work_photoset\",\n                \"timeline_work\"\n            ],\n            \"type\": \"image/jpeg\",\n            \"route\": \"/assets/ec560011/webp2.jpeg\",\n            \"width\": 320,\n            \"height\": 241,\n            \"position\": 1\n        },\n        {\n            \"created\": true,\n            \"component_name\": [\n                \"work_photoset\",\n                \"timeline_work\"\n            ],\n            \"type\": \"image/jpeg\",\n            \"route\": \"/assets/3675f21c/SA_small.jpeg\",\n            \"width\": 1270,\n            \"height\": 354,\n            \"position\": 2\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Filter Work",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/work",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"work"
+							],
+							"query": [
+								{
+									"key": "id_work",
+									"value": "f7c7c4cf-1c0f-4e8d-890f-990deb830adf",
+									"disabled": true
+								},
+								{
+									"key": "slug",
+									"value": "a-b-3",
+									"description": "Slug of the work",
+									"disabled": true
+								},
+								{
+									"key": "main_component",
+									"value": "timeline_work",
+									"disabled": true
+								},
+								{
+									"key": "not_contain",
+									"value": "id_talent",
+									"description": "Querying rows with null values. Comma sepparated values.",
+									"disabled": true
+								},
+								{
+									"key": "include",
+									"value": "id_talent",
+									"description": "Attrs. to show from the table \"Work\" listed in this field . Comma sepparated values.",
+									"disabled": true
+								},
+								{
+									"key": "exclude",
+									"value": "id_work",
+									"description": "Exlude the attrs. from the table \"Work\" listed in this field. Comma sepparated values.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Empty query, scan the table Work and will fetch all the resources asociated with every Work row.\n<br/><br/>\n\nQuery with arguments act as a filter, will retrieve Works and the resources associated with every row."
+					},
+					"response": [
+						{
+							"name": "Filter Work - Empty",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/work",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"work"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Work Title",
+											"description": "Title of the work to catch.",
+											"disabled": true
+										},
+										{
+											"key": "component_name",
+											"value": "carousel_work",
+											"description": "Filter the work by component name.",
+											"disabled": true
+										},
+										{
+											"key": "not_contain",
+											"value": "id_talent",
+											"description": "Querying rows with null values. Comma sepparated values.",
+											"disabled": true
+										},
+										{
+											"key": "include",
+											"value": "id_talent",
+											"description": "Attrs. to show from the table \"Work\" listed in this field . Comma sepparated values.",
+											"disabled": true
+										},
+										{
+											"key": "exclude",
+											"value": "id_talent,id_work",
+											"description": "Exlude the attrs. from the table \"Work\" listed in this field. Comma sepparated values.",
+											"disabled": true
+										},
+										{
+											"key": "id_talent",
+											"value": "52fa8dc1-cf54-47fa-a80d-981f6d0de360",
+											"description": "Work associated to a talent.",
+											"disabled": true
+										},
+										{
+											"key": "slug",
+											"value": "work",
+											"description": "Slug of the work",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "98"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"62-8Xm34HKc6WqWNh7GS/yUYle6mhY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 May 2020 14:48:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 4,\n    \"message\": \"object not found\",\n    \"item\": {\n        \"count\": 0,\n        \"rows\": []\n    }\n}"
+						},
+						{
+							"name": "Filter Work by Main Component",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/work?main_component=timeline_work&slug=a-b-3",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"work"
+									],
+									"query": [
+										{
+											"key": "main_component",
+											"value": "timeline_work",
+											"description": "Filter the work by component name."
+										},
+										{
+											"key": "not_contain",
+											"value": "id_talent",
+											"description": "Querying rows with null values. Comma sepparated values.",
+											"disabled": true
+										},
+										{
+											"key": "include",
+											"value": "id_talent",
+											"description": "Attrs. to show from the table \"Work\" listed in this field . Comma sepparated values.",
+											"disabled": true
+										},
+										{
+											"key": "exclude",
+											"value": "id_work",
+											"description": "Exlude the attrs. from the table \"Work\" listed in this field. Comma sepparated values.",
+											"disabled": true
+										},
+										{
+											"key": "slug",
+											"value": "a-b-3",
+											"description": "Slug of the work"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1014"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f6-1f5naXjnM7UNUE0mi0Cp5zw4n3k\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jun 2020 15:02:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 3,\n    \"message\": \"object found\",\n    \"item\": {\n        \"count\": 1,\n        \"rows\": [\n            {\n                \"id_work\": \"f7c7c4cf-1c0f-4e8d-890f-990deb830adf\",\n                \"slug\": \"a-b-3\",\n                \"talent_name\": \"A B\",\n                \"client_name\": \"nasa\",\n                \"designer_name\": \"A B\",\n                \"stylist_name\": \"nasa\",\n                \"background_reference\": \"wikipedia.com\",\n                \"description\": null,\n                \"position\": 1,\n                \"main_component\": \"timeline_work\",\n                \"Resources\": [\n                    {\n                        \"route\": \"/assets/452770c8/work.jpg\",\n                        \"type\": \"image/jpeg\",\n                        \"width\": 1080,\n                        \"height\": 1287,\n                        \"position\": 0,\n                        \"Components\": [\n                            {\n                                \"name\": \"work_cover\"\n                            },\n                            {\n                                \"name\": \"timeline_work\"\n                            }\n                        ]\n                    },\n                    {\n                        \"route\": \"/assets/94a7da61/webp.jpeg\",\n                        \"type\": \"image/jpeg\",\n                        \"width\": 320,\n                        \"height\": 241,\n                        \"position\": 0,\n                        \"Components\": [\n                            {\n                                \"name\": \"work_photoset\"\n                            },\n                            {\n                                \"name\": \"timeline_work\"\n                            }\n                        ]\n                    },\n                    {\n                        \"route\": \"/assets/ec560011/webp2.jpeg\",\n                        \"type\": \"image/jpeg\",\n                        \"width\": 320,\n                        \"height\": 241,\n                        \"position\": 1,\n                        \"Components\": [\n                            {\n                                \"name\": \"work_photoset\"\n                            },\n                            {\n                                \"name\": \"timeline_work\"\n                            }\n                        ]\n                    },\n                    {\n                        \"route\": \"/assets/3675f21c/SA_small.jpeg\",\n                        \"type\": \"image/jpeg\",\n                        \"width\": 1270,\n                        \"height\": 354,\n                        \"position\": 2,\n                        \"Components\": [\n                            {\n                                \"name\": \"work_photoset\"\n                            },\n                            {\n                                \"name\": \"timeline_work\"\n                            }\n                        ]\n                    }\n                ]\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Work",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_work",
+									"value": "6328f97d-efa3-457e-a1a4-2f120caf689c",
+									"description": "Identifier the elemtno to update.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "slug",
+									"value": "a-b-3",
+									"type": "text"
+								},
+								{
+									"key": "talent_name",
+									"value": "",
+									"description": "Change the name of the Talent, will change the slug.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "client_name",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "designer_name",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "stylist_name",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "background_reference",
+									"value": "wikipedia.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "position",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "main_component",
+									"value": "timeline_work",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "This work, now reference a Talent.",
+									"description": "Attr. from work. Check the ERD.",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/work/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"work",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Work",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_work",
+											"value": "6328f97d-efa3-457e-a1a4-2f120caf689c",
+											"description": "Identifier the elemtno to update.",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "work 3",
+											"description": "Identifier the element to update.",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "new_title",
+											"value": "titlle work - re new ",
+											"description": "You can also update the title. Make sure that the new title will be also unique.",
+											"type": "text"
+										},
+										{
+											"key": "id_talent",
+											"value": "52fa8dc1-cf54-47fa-a80d-981f6d0de360",
+											"description": "The id_talent need to exist, if not an error will be throw.",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "description",
+											"value": "This work, now reference a Talent.",
+											"description": "Attr. from work. Check the ERD.",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "slug",
+											"value": "a-a-4",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/work/update",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"work",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5b-vn05Lfl/HkOCc0K0vFw/4dXQcio\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 14 May 2020 03:24:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 5,\n    \"message\": \"object updated\",\n    \"item\": {\n        \"slug\": \"a-a-4\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Work",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_work",
+									"value": "6328f97d-efa3-457e-a1a4-2f120caf689c",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "work 3",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "id_talent",
+									"value": "52fa8dc1-cf54-47fa-a80d-981f6d0de360",
+									"description": "Delete by the owner of the work. Deleting only resources created using a work entity.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "slug",
+									"value": "a-b",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/work",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"work"
+							]
+						},
+						"description": "Endpoint to delete works.\n<br/> <br/>\n\nDelete by [**id_work** | **slug** | **title** | **id_talent**]. Keep the body empty for delete all works.\n<br/> <br/>\n\nThat is the precedence order of selection the primary key.\n<br/> <br/>\n\nFor example: \n- If the client write \"id_work\" and \"title\" as arguments for a request delete, will be selected \"id_work\" instead of \"title\"."
+					},
+					"response": [
+						{
+							"name": "Delete Work - Example Reponse",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_work",
+											"value": "efa06c7b-3305-4d67-9625-75d9fab9cffd",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "work 3",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/work",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"work"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-5SB0VcBe+nSGeCOW7N3cgEHjx94\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 May 2020 13:52:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 5,\n    \"message\": \"object(s) deleted, count: 1\"\n}"
+						},
+						{
+							"name": "Delete Work - id_talent do not exist, del. 0 rows.",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_work",
+											"value": "52fa8dc1-cf54-47fa-a80d-981f6d0de360",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "work 3",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "id_talent",
+											"value": "52fa8dc1-cf54-47fa-a80d-981f6d0de361",
+											"description": "Delete by the owner of the work. Deleting only resources created using a work entity.",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/work",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"work"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-396PQx60YzEvRCU9cG0nV9tBDeQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 06 May 2020 13:45:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"ok\",\n    \"http_code\": 200,\n    \"code\": 5,\n    \"message\": \"object(s) deleted, count: 0\"\n}"
+						}
+					]
+				}
+			],
+			"description": "## Work\n---\nThis collection will manage the rows from the table **Work** \n(follow the \"/utils\" folder to watch the UML - ERD from this table).\n\n### Hint\n\nThis Datbase Configuration have a set of functions and a trigger that manage\nthe **slug** attributes from this table. Follow the file */db/3_trigger...* \nfrom more information.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e1fac19f-42f0-4de1-9a52-ffded4a0bfaf",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3924447-e4e3-4000-9f07-5f8ee5ef4ea7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiZTBiZTczNjYtMGExNy00ODUzLTgzMzAtNDRlZmQxYmExMzE5IiwiZW1haWwiOiJqaG9uIiwiaGFzaCI6IjE5YjcyNmQ0MDQ2YjQyYWI2YTAzMGFmZjA2M2ZmZTQzMjExMTRlZjcyNTE5NWEyZTc4NWM1OTc5OTdlY2Q3MjQiLCJpYXQiOjE1OTQyMDkyOTIsImV4cCI6MTU5NDI2Njg5Mn0.QFJkD3j5SljY1mYAmxWID52018_HyuVubugmnPrb_lY",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ac1c28a9-8f45-4efd-9205-eb4ecde04c44",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "40ad6d3b-61ae-4c6e-92b7-58b7bc39153d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "6c1fab04-342b-47f8-b468-ceab1f392310",
+			"key": "url",
+			"value": "http://localhost:7000",
+			"disabled": true
+		},
+		{
+			"id": "c5f44a19-6ada-4b18-80f8-d7a6e7c01f02",
+			"key": "url",
+			"value": "https://api.systemagency.com"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
