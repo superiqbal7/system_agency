@@ -1,16 +1,16 @@
-.img-wrapper {
+.carousel .img-wrapper {
     position: relative;
 }
 
-.img-wrapper:hover img {
+.carousel .img-wrapper:hover img {
     opacity: 0.2;
 }
 
-.img-wrapper:hover .info {
+.carousel .img-wrapper:hover .info {
     display: block;
 }
 
-.img-wrapper img {
+.carousel .img-wrapper img {
     display: block;
     max-width: 100%;
     max-height: 380px;
@@ -18,7 +18,7 @@
     height: auto;
 }
 
-.info {
+.carousel .info {
     display: none;
     position: absolute;
     top: 18px;
@@ -29,7 +29,7 @@
     font-size: 14px;
 }
 
-.info .name {
+.carousel .info .name {
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 0px;

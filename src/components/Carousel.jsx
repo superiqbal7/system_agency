@@ -18,8 +18,8 @@ export default class SimpleSlider extends Component {
 		};
 
 		return (
-			<div>
-				<h2> Single Item</h2>
+			<div class="carousel">
+				<h2>Single Item</h2>
 				<Slider {...settings}>
 					{items.map((item) => (
 						<div className="img-wrapper">

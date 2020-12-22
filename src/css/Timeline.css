@@ -1,36 +1,53 @@
 @import url("https://fonts.googleapis.com/css?family=Forum&display=swap");
 
-.timelinecontainer {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 5%;
-    justify-content: space-between;
-    overflow: hidden;
-    margin: 0 10%;
-
+.cols {
+    column-count: 2;
 }
 
-.itemContainer {
-    width: 34%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
+.item-container {
+    margin-bottom: 40px;
 }
 
-.textContainer {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    bottom: 0;
+.item-container .content {
+    margin-top: 10px;
 }
 
-.timelineImage {
-    margin-top: 5rem;
-    width: 70%;
-}
+@media screen and (min-width: 768px) {
+    .cols {
+        column-gap: 5%;
+    }
 
-div {
-    font-style: normal;
-    font-weight: 500;
-    font-size: .6vw;
+    .item-container {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 80px;
+    }
+
+    .content {
+        font-size: 11px;
+        width: 400px;
+    }
+
+    .content .name {
+        font-size: 14px;
+    }
+
+    .right-content .img-wrapper {
+        order: 1;
+    }
+
+    .right-content .content {
+        order: 2;
+        margin-left: 0.9375rem;
+    }
+
+    .left-content .img-wrapper {
+        order: 2;
+    }
+
+    .left-content .content {
+        order: 1;
+        text-align: right;
+        margin-right: 0.9375rem;
+    }
 }
