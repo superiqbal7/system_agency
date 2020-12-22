@@ -429,10 +429,10 @@ class Talents extends Component {
 
 				<Footer />
 				{/* <div className="middle"> */}
-				<div id="share" class="modal fade" role="dialog">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-body">
+				<div id="share" className="modal fade" role="dialog">
+					<div className="modal-dialog">
+						<div className="modal-content">
+							<div className="modal-body">
 								<h2>Share</h2>
 								<form action="">
 									<textarea
@@ -459,10 +459,10 @@ class Talents extends Component {
 
 				{/* </div> */}
 
-				<div id="share-confirm" class="modal fade" role="dialog">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-body">
+				<div id="share-confirm" className="modal fade" role="dialog">
+					<div className="modal-dialog">
+						<div className="modal-content">
+							<div className="modal-body">
 								<h2>Share</h2>
 								<form action="">
 									<p className="success-message-big" style={{ color: "black" }}>
@@ -475,10 +475,10 @@ class Talents extends Component {
 					</div>
 				</div>
 
-				<div id="request" class="modal fade" role="dialog">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
-							<div class="modal-body">
+				<div id="request" className="modal fade" role="dialog">
+					<div className="modal-dialog modal-lg">
+						<div className="modal-content">
+							<div className="modal-body">
 								<h2 className="helvetica-neue-regular">Request Package</h2>
 								<form action="">
 									<textarea type="text" placeholder="Name*" />

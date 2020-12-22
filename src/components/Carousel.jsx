@@ -18,7 +18,7 @@ export default class SimpleSlider extends Component {
 		};
 
 		return (
-			<div class="carousel">
+			<div className="carousel">
 				<h2>Single Item</h2>
 				<Slider {...settings}>
 					{items.map((item) => (

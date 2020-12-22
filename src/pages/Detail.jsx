@@ -106,7 +106,7 @@ class Detail extends Component {
 											</table>
 											<div className="pdf_btn">
 												<i
-													class="fa fa-instagram"
+													className="fa fa-instagram"
 													style={{ fontsize: "24px", display: "block" }}
 												></i>
 												<a href="#">@thereinsta</a>
