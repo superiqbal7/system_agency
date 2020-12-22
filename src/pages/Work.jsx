@@ -54,7 +54,7 @@ function Work() {
 			<Navigation />
 			{pictureCount > 0 ? (
 				<div>
-					<Carousel items={carouselItems} />
+					<Carousel items={timelineWork} />
 					<Timeline items={timelineWork} />
 				</div>
 			) : (

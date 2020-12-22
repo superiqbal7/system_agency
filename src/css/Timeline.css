@@ -1,33 +1,36 @@
 @import url("https://fonts.googleapis.com/css?family=Forum&display=swap");
-.timelinecontainer{
-    display:flex;
+
+.timelinecontainer {
+    display: flex;
     flex-wrap: wrap;
-    margin-top:5%;
-    justify-content:space-between;
+    margin-top: 5%;
+    justify-content: space-between;
     overflow: hidden;
     margin: 0 10%;
-    
+
 }
 
-.itemContainer{
+.itemContainer {
     width: 34%;
     height: 100%;
     display: flex;
-
+    align-items: flex-end;
 }
-.textContainer{
-    display:flex;
+
+.textContainer {
+    display: flex;
     flex-direction: column;
-    position:relative;
-    bottom:0;
+    position: relative;
+    bottom: 0;
 }
 
-.timelineImage{
-    margin-top:5rem;
+.timelineImage {
+    margin-top: 5rem;
     width: 70%;
 }
-div{
-font-style: normal;
-font-weight:500;
-font-size: .6vw;
+
+div {
+    font-style: normal;
+    font-weight: 500;
+    font-size: .6vw;
 }
