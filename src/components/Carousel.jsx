@@ -23,6 +23,10 @@ export default class SimpleSlider extends Component {
 				<Slider {...settings}>
 					{items.map((item) => (
 						<div className="img-wrapper">
+							<div className="info">
+								<h5 className="name">Karina Kozionova</h5>
+								<p>ELLE Mexico, December 2018</p>
+							</div>
 							<img src={`https://api.systemagency.com${item}`} alt="alter" />
 						</div>
 					))}

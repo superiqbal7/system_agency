@@ -1,7 +1,36 @@
+.img-wrapper {
+    position: relative;
+}
+
+.img-wrapper:hover img {
+    opacity: 0.2;
+}
+
+.img-wrapper:hover .info {
+    display: block;
+}
+
 .img-wrapper img {
     display: block;
     max-width: 100%;
     max-height: 380px;
     width: auto;
     height: auto;
+}
+
+.info {
+    display: none;
+    position: absolute;
+    top: 18px;
+    right: 12px;
+    font-family: "Helvetica";
+    text-align: right;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.info .name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 0px;
 }
