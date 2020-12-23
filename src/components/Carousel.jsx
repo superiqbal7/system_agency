@@ -15,7 +15,7 @@ export default class SimpleSlider extends Component {
 			autoplay: true,
 			autoplaySpeed: 0,
 			variableWidth: true,
-			initialSlide: 5,
+			initialSlide: 1,
 			cssEase: "linear"
 		};
 
