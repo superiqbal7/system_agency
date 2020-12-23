@@ -14,15 +14,12 @@ function Home() {
 	useEffect(() => {
 		axios.get(`${config.URL}/work`).then((response) => {
 			let images = response.data.item.rows;
-			console.log(images[25].Resources[0].route);
 
-			images.map((image) => {
-				image.is_requested = false;
-			});
+			// images.map((image) => {
+			// 	image.is_requested = false;
+			// });
 			//save images variable in state
-			setImages({
-				images,
-			});
+			setImages(images);
 		});
 	}, []);
 
@@ -40,20 +37,43 @@ function Home() {
 					url="https://api.systemagency.com/assets/edce0bd5/main_video.mp4"
 				/>
 			</div>
-			<div className="container py-24">
-				<div className="grid grid-cols-2 gap-10">
-					<div>
-						<img
-							src="https://api.systemagency.com/assets/9c535a96/Rose-Valentine-3.jpg"
-							alt="magazine"
-						/>
-					</div>
-					<div>
-						<img
-							src="https://api.systemagency.com/assets/f187fda2/Vovk-1.jpg"
-							alt="magazine"
-						/>
-					</div>
+			<div className="container py-64">
+				<div className="grid grid-cols-4 gap-64 w-3/4 mx-auto">
+					{images.map((image, index) =>
+						image.Resources[0].type === "image/jpeg" && index !== 2 ? (
+							<div
+								className={
+									image.Resources[0].width > image.Resources[0].height
+										? "col-span-4"
+										: "col-span-2"
+								}
+							>
+								<div className="text-center mb-3">
+									<p className="font-bold m-0">{image.talent_name}</p>
+									<small>{image.client_name}</small>
+								</div>
+								<img
+									src={config.URL + image.Resources[0].route}
+									alt="magazine"
+									style={{ width: "100%", height: "auto" }}
+								/>
+								<div className="text-center font-base pt-5 px-10">
+									{image.description}
+								</div>
+							</div>
+						) : index === 2 ? (
+							<div className="col-span-4">
+								<ReactPlayer
+									playing={true}
+									width="100%"
+									height="100%"
+									url={config.URL + "/assets/edce0bd5/main_video.mp4"}
+								/>
+							</div>
+						) : (
+							""
+						)
+					)}
 				</div>
 			</div>
 			<div className="carousel"></div>

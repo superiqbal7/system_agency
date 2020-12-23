@@ -54,7 +54,7 @@ export default Timeline;
 
 function Popup(props) {
 	return (
-		<div id="myModal" className="popup">
+		<div className="popup">
 			<div className="popup-content">
 				<span className="close" onClick={props.closePopup}>
 					&times;
