@@ -16,12 +16,11 @@ export default class SimpleSlider extends Component {
 			autoplaySpeed: 0,
 			variableWidth: true,
 			initialSlide: 1,
-			cssEase: "linear"
+			cssEase: "linear",
 		};
 
 		return (
 			<div className="carousel">
-				<h2>Single Item</h2>
 				<Slider {...settings}>
 					{items.map((item) => (
 						<div className="img-wrapper">

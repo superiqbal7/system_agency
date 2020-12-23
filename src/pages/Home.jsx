@@ -1,15 +1,14 @@
-import React, { Component, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Navigation from "../components/Navigation.jsx";
-import Footer from "../components/Footer.jsx";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import config from "../config";
-import Slider from "./Slider.jsx";
 import ReactPlayer from "react-player";
+import Navigation from "../components/Navigation.jsx";
+import config from "../config";
+import Carousel from "../components/Carousel";
 import "../css/Home.css";
 
 function Home() {
 	const [images, setImages] = useState([]);
+	const [timelineWork, setTimelineWork] = useState([]);
 
 	useEffect(() => {
 		axios.get(`${config.URL}/work`).then((response) => {
@@ -20,8 +19,25 @@ function Home() {
 			// });
 			//save images variable in state
 			setImages(images);
+			setTimelineWork(filterTimelineWork(images));
 		});
 	}, []);
+
+	function filterTimelineWork(rows) {
+		const timelineWork = [];
+		rows.forEach((row) => {
+			if (row["main_component"] === "timeline_work") {
+				timelineWork.push({
+					img: row["Resources"][0]["route"],
+					talentName: row["talent_name"],
+					clientName: row["client_name"],
+					Photographer: row["photographer"],
+					Stylist: row["stylist_name"],
+				});
+			}
+		});
+		return timelineWork;
+	}
 
 	return (
 		<div>
@@ -38,7 +54,7 @@ function Home() {
 				/>
 			</div>
 			<div className="container py-64">
-				<div className="grid grid-cols-4 gap-64 w-3/4 mx-auto">
+				<div className="grid grid-cols-4 gap-x-64 gap-y-32 w-3/4 mx-auto">
 					{images.map((image, index) =>
 						image.Resources[0].type === "image/jpeg" && index !== 2 ? (
 							<div
@@ -67,6 +83,7 @@ function Home() {
 									playing={true}
 									width="100%"
 									height="100%"
+									controls
 									url={config.URL + "/assets/edce0bd5/main_video.mp4"}
 								/>
 							</div>
@@ -75,8 +92,9 @@ function Home() {
 						)
 					)}
 				</div>
+				<div className="h-32"></div>
+				<Carousel items={timelineWork} />
 			</div>
-			<div className="carousel"></div>
 		</div>
 	);
 }

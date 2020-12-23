@@ -54,6 +54,7 @@ function Work() {
 			<Navigation />
 			{pictureCount > 0 ? (
 				<div>
+					{console.log("carousel is", timelineWork)}
 					<Carousel items={timelineWork} />
 					<Timeline items={timelineWork} />
 				</div>
