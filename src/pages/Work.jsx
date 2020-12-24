@@ -30,6 +30,7 @@ function Work() {
 					clientName: row["client_name"],
 					Photographer: row["photographer"],
 					Stylist: row["stylist_name"],
+					Slug: row["slug"]
 				});
 			}
 		});
@@ -52,6 +53,7 @@ function Work() {
 	return (
 		<div>
 			<Navigation />
+			
 			{pictureCount > 0 ? (
 				<div>
 					{console.log("carousel is", timelineWork)}
