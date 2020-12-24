@@ -52,17 +52,20 @@ function Work() {
 
 	return (
 		<div>
-			<Navigation />
 			
-			{pictureCount > 0 ? (
-				<div>
-					{console.log("carousel is", timelineWork)}
-					<Carousel items={timelineWork} />
-					<Timeline items={timelineWork} />
-				</div>
-			) : (
-				<div></div>
-			)}
+			<Navigation />
+			<div className="my-64">
+				{pictureCount > 0 ? (
+					<div>
+						{console.log("carousel is", timelineWork)}
+						<Carousel items={timelineWork} />
+						<Timeline items={timelineWork} />
+					</div>
+				) : (
+						<div></div>
+					)}
+			</div>
+			
 		</div>
 	);
 }
