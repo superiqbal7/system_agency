@@ -34,14 +34,17 @@ class Navigation extends Component {
 						onMouseOver={this.onToggleNav}
 						onMouseOut={this.onToggleNav}
 					>
-						<div className="bg-white" style={{ marginTop: "-10px" }}>
-							<img
-								className="pt-10 pb-6 cursor-pointer mx-auto"
-								src={SystemAgencyLogo}
-								alt=""
-								width="170px"
-							/>
-						</div>
+						<Link to="/home">
+							<div className="bg-white" style={{ marginTop: "-10px" }}>
+								<img
+									className="pt-10 pb-6 cursor-pointer mx-auto"
+									src={SystemAgencyLogo}
+									alt=""
+									width="170px"
+								/>
+							</div>
+					</Link>
+						
 						<div
 							style={{
 								backgroundColor: "rgba(255,255,255, 0.5)",
