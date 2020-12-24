@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import "../css/Timeline.css";
-
-const url = "https://api.systemagency.com/";
+import config from "../config";
+//const url = "https://api.systemagency.com/talent/";
 
 function Timeline({ items }) {
 	const [popUpData, setPopupData] = useState({});
@@ -12,10 +12,12 @@ function Timeline({ items }) {
 	let leftItemCount = Math.ceil(items.length / 2);
 
 	let showPopup = (data) => {
-		axios.get(url + `?slug=${data.Slug}`)
+		console.log(data.Slug)
+		let url = `${config.URL}/talent/section?slug=${data.Slug}`;
+		axios.get(url)
 		.then( response =>{
-			setImageData(response.data);
-			console.log("getimg " + response.data)
+				console.log(response.data);
+				setImageData(response.data.item.rows[0]);
 		})
 		.catch( err => {
 			console.log("mara khaisi", err);
@@ -70,7 +72,6 @@ function Timeline({ items }) {
 export default Timeline;
 
 function Popup({ data, closePopup }) {
-	
 	console.log(data);
 	return (
 		<div className="popup">
@@ -78,18 +79,24 @@ function Popup({ data, closePopup }) {
 				<span className="close" onClick={closePopup}>
 					&times;
 				</span>
-					<div class="row">
-						<div class="col-md-6">
-							<img
-								src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/2_pfytib.jpg"
-								alt="alernate text"
-							/>
-						</div>
-						<div class="col-md-6"><img
+
+				<div class="grid grid-cols-2 gap-0">
+					<div class="...">
+						<img className="popoverImg"
 							src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/2_pfytib.jpg"
 							alt="alernate text"
-						/></div>
+						/>
 					</div>
+					<div class="...">
+						<img className="popoverImg"
+							src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/1_fafdgi.jpg"
+							//src={`https://api.systemagency.com${data.Resources[0]}`}
+							alt="alernate text"
+						/>
+					</div>
+				</div>
+
+				
 			</div>
 		</div>
 	);
