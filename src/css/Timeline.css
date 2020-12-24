@@ -70,11 +70,9 @@
 }
 
 .popup-content {
-  background-color: #fefefe;
+  background-color: #fefefe00;
   margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+  width: 50%;
   position: relative;
 }
 
@@ -82,11 +80,13 @@
   position: absolute;
   top: 1px;
   right: 6px;
+  z-index: 1;
+  color: rgb(0, 0, 0);
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: rgb(83, 83, 83);
   text-decoration: none;
   cursor: pointer;
 }
@@ -100,4 +100,12 @@
 
 .gallery .img-wrapper img {
   height: 300px;
+}
+
+.popoverImg {
+  width: 600px;
+}
+
+.popshit {
+  padding: 0px 0px 0px 0px;
 }
