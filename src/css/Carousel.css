@@ -30,7 +30,8 @@
 }
 
 .carousel .info .name {
+  font-family: helvetica-neue-light;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 12px;
   margin-bottom: 0px;
 }
