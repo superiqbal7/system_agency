@@ -75,11 +75,10 @@ function Popup({ data, closePopup }) {
 	console.log(data);
 	return (
 		<div className="popup">
-			<div className="popup-content">
-				<span className="close" onClick={closePopup}>
-					&times;
+			<span className="close" onClick={closePopup}>
+				&times;
 				</span>
-
+			<div className="popup-content">
 				<div class="grid grid-cols-2 gap-0">
 					<div class="...">
 						<img className="popoverImg"
