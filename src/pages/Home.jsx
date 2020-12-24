@@ -53,7 +53,7 @@ function Home() {
 					url="https://api.systemagency.com/assets/edce0bd5/main_video.mp4"
 				/>
 			</div>
-			<div className="container py-64">
+			<div className="container pt-64 pb-36">
 				<div className="grid grid-cols-4 gap-x-64 gap-y-32 w-3/4 mx-auto">
 					{images.map((image, index) =>
 						image.Resources[0].type === "image/jpeg" && index !== 2 ? (
@@ -68,10 +68,12 @@ function Home() {
 									<p className="font-bold m-0">{image.talent_name}</p>
 									<small>{image.client_name}</small>
 								</div>
+								
 								<img
 									src={config.URL + image.Resources[0].route}
 									alt="magazine"
-									style={{ width: "100%", height: "auto" }}
+									className="homeImage"
+									style={{  }}
 								/>
 								<div className="text-center font-base pt-5 px-10">
 									{image.description}
@@ -84,7 +86,7 @@ function Home() {
 									width="100%"
 									height="100%"
 									controls
-									url={config.URL + "/assets/edce0bd5/main_video.mp4"}
+									url="https://res.cloudinary.com/djhzlslux/video/upload/v1608802611/FENDIxHIGHSNOB_16x9.mov_yqasxb.mp4"
 								/>
 							</div>
 						) : (
@@ -92,7 +94,11 @@ function Home() {
 						)
 					)}
 				</div>
-				<div className="h-32"></div>
+				<div className="h-32">
+				</div>
+				
+			</div>
+			<div className="pb-64">
 				<Carousel items={timelineWork} />
 			</div>
 		</div>
