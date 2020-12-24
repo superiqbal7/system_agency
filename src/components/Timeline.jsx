@@ -1,19 +1,36 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import "../css/Timeline.css";
+
+const url = "https://api.systemagency.com/";
 
 function Timeline({ items }) {
 	const [popUpData, setPopupData] = useState({});
+	const [imageData, setImageData] = useState({});
 	const left = "item-container left-content";
 	const right = "item-container right-content";
 	let leftItemCount = Math.ceil(items.length / 2);
 
 	let showPopup = (data) => {
+		axios.get(url + `?slug=${data.Slug}`)
+		.then( response =>{
+			setImageData(response.data);
+			console.log("getimg " + response.data)
+		})
+		.catch( err => {
+			console.log("mara khaisi", err);
+		})
+		
 		setPopupData(data);
+		
+		console.log("ekhanse ashslam..", data);
 	};
 
 	let closePopup = () => {
 		setPopupData({});
 	};
+
+
 
 	return (
 		<div className="container">
@@ -42,7 +59,7 @@ function Timeline({ items }) {
 				))}
 			</div>
 			{Object.keys(popUpData).length > 0 ? (
-				<Popup data={popUpData} closePopup={closePopup} />
+				<Popup data={imageData} closePopup={closePopup} />
 			) : (
 				""
 			)}
@@ -52,40 +69,76 @@ function Timeline({ items }) {
 
 export default Timeline;
 
-function Popup(props) {
+function Popup({ data, closePopup }) {
+	
+	console.log(data);
 	return (
 		<div className="popup">
 			<div className="popup-content">
-				<span className="close" onClick={props.closePopup}>
+				<span className="close" onClick={closePopup}>
 					&times;
 				</span>
-				<div className="flex gallery">
-					<div className="img-wrapper">
-						<img
-							src={`https://api.systemagency.com${props.data.img}`}
-							alt="alernate text"
-						/>
-					</div>
-					<div className="img-wrapper">
-						<img
-							src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/1_fafdgi.jpg"
-							alt="alernate text"
-						/>
-					</div>
-					<div className="img-wrapper">
-						<img
+					<div class="row">
+						<div class="col-md-6">
+							<img
+								src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/2_pfytib.jpg"
+								alt="alernate text"
+							/>
+						</div>
+						<div class="col-md-6"><img
 							src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/2_pfytib.jpg"
 							alt="alernate text"
-						/>
+						/></div>
 					</div>
-					<div className="img-wrapper">
-						<img
-							src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/3_hso4ra.jpg"
-							alt="alernate text"
-						/>
-					</div>
-				</div>
 			</div>
 		</div>
 	);
 }
+
+
+// <div class="row">
+// 	<div class="col-sm">
+// 		<img
+// 			src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/2_pfytib.jpg"
+// 			alt="alernate text"
+// 		/>
+// 	</div>
+// 	<div class="col-sm">
+// 		<img
+// 			src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/2_pfytib.jpg"
+// 			alt="alernate text"
+// 		/>
+// 	</div>
+// </div>
+
+
+
+
+// src = {`https://api.systemagency.com${image.Resources[0].route}`}
+// alt = { image.name }
+// <div className="flex gallery">
+// 	<div className="img-wrapper">
+// 		<img
+// 			src={`https://api.systemagency.com${props.data.img}`}
+// 			alt="alernate text"
+// 		/>
+// 	</div>
+// 	<div className="img-wrapper">
+// 		<img
+// 			src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/1_fafdgi.jpg"
+// 			alt="alernate text"
+// 		/>
+// 	</div>
+// 	<div className="img-wrapper">
+// 		<img
+// 			src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/2_pfytib.jpg"
+// 			alt="alernate text"
+// 		/>
+// 	</div>
+// 	<div className="img-wrapper">
+// 		<img
+// 			src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/3_hso4ra.jpg"
+// 			alt="alernate text"
+// 		/>
+// 	</div>
+// </div>
