@@ -72,7 +72,11 @@ function Home() {
 								<img
 									src={config.URL + image.Resources[0].route}
 									alt="magazine"
-									className="homeImage"
+									className={
+										image.Resources[0].width > image.Resources[0].height
+											? "landscapeImg"
+											: "portraitImg"
+									}
 									style={{  }}
 								/>
 								<div className="text-center font-base pt-5 px-10">
