@@ -119,10 +119,10 @@ class Detail extends Component {
 											</table>
 											<div className="pdf_btn">
 												<i class="fa fa-instagram" style={{ fontsize: "24px", display: "block" }}></i>
-												<a href={"https://www.instagram.com/" + formatInstagramContext(talent.instagram)}>@{formatInstagramContext(talent.instagram)}</a>
+												<a className="helvetica-neue-italic" href={"https://www.instagram.com/" + formatInstagramContext(talent.instagram)}>@{formatInstagramContext(talent.instagram)}</a>
 												<div>
-													<section className="flex justify-center mt-5 helvetica-neue about-office-buttons" >
-														<button className="focus: uppercase hover:font-extrabold"> <a target="_blank" href={`${config.URL}${talent.pdf_route}`} style={{ color: 'black', fontSize: '12px' }}>Create PDF</a></button>
+													<section className="flex justify-center mt-5 helvetica-neue-thin italic about-office-buttons" >
+														<button className=" hover:font-extrabold"> <a target="_blank" href={`${config.URL}${talent.pdf_route}`} style={{ color: 'black', fontSize: '12px' }}>create pdf</a></button>
 													</section>
 												</div>
 											</div>
