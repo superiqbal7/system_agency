@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import Navigation from "../components/Navigation.jsx";
-import Footer from "../components/Footer.jsx";
-import axios from "axios";
-import config from "../config";
-import SliderImages from "../pages/Slider.jsx";
+import Navigation from '../components/Navigation.jsx';
+import Footer from '../components/Footer.jsx';
+import axios from 'axios';
+import config from "../config"
+import SliderImages from "../pages/Slider.jsx"
+
 
 class Detail extends Component {
 	constructor(props) {
@@ -13,176 +14,150 @@ class Detail extends Component {
 			data: [],
 			renderSlider: false,
 			sliderItems: [],
-			type: null,
-		};
+			type: null
+		}
+
 	}
 
 	componentDidMount() {
-		const slug = this.props.match.params.slug;
-		axios.get(`${config.URL}/talent?slug=${slug}`).then((response) => {
-			this.setState({
-				data: response.data.item.rows,
+		const slug = this.props.match.params.slug
+		console.log(slug);
+		axios.get(`${config.URL}/talent?slug=${slug}`)
+			.then((response) => {
+				console.log(response);
+				this.setState({
+					data: response.data.item.rows
+				})
 			});
-		});
 	}
 
 	silderShow = (picName) => {
 		this.setState({
 			renderSlider: true,
-			type: picName,
-		});
+			type: picName
+		})
 
 		let images = this.state.data;
 		let res = images[0].Resources;
-		console.log("sliderhit", images, picName);
 
 		let slider = [];
 		res.forEach((resource, i) => {
-			if (resource.Components[0].name === picName) {
+			if (resource.Components[0].name == picName) {
 				slider.push(resource);
 			}
 		});
 
+
 		if (slider.length > 0) {
 			this.setState({
-				sliderItems: slider,
-			});
+				sliderItems: slider
+			})
 		}
-	};
+	}
+
 
 	render() {
+
 		const data = this.state.data;
 		// console.log(this.state);
+
+		function formatInstagramContext(text) {
+			let com = text.split(".com/"); // ["someurl", "instagramUsername"]
+			let arroba = text.split("@"); // ["@", "someUser"]
+			if (com[1] !== undefined) {
+				return com[1];
+			}
+			if (arroba[1] !== undefined) {
+				return arroba[1];
+			}
+			return text;
+		}
 
 		return (
 			<div>
 				<Navigation />
 				<section className="mt-6 pt-16">
 					<div className="row mt-16">
+
 						{data.map((talent, i) => (
 							<div>
 								<div className="row">
 									<div className="col-sm-4">
 										<div className="pleft">
-											<h3>
-												<strong>{talent.name} </strong>
-												{talent.last_name}
-											</h3>
-											<table
-												style={{
-													width: "50%",
-													marginTop: "7rem",
-													margin: "100px auto 50px",
-												}}
-											>
+											<h3 className="detailTalentLastname"><strong>{talent.name} </strong> {talent.last_name} </h3>
+											<table className="tableTalentDetails" style={{ width: '50%', marginTop: '7rem', margin: '100px auto 50px' }}>
 												<tr>
-													<th>Height</th>
+													<th> HEIGHT </th>
 													<td>{talent.height}</td>
 												</tr>
 												<tr>
-													<th>Bust</th>
+													<th> BUST</th>
 													<td>{talent.bust}</td>
 												</tr>
 												<tr>
-													<th>Waist</th>
+													<th> WAIST</th>
 													<td>{talent.waist}</td>
 												</tr>
 												<tr>
-													<th>Hips</th>
+													<th> HIS</th>
 													<td>{talent.hips}</td>
 												</tr>
 												<tr>
-													<th>Shoes</th>
+													<th> SHOES</th>
+
 													<td>{talent.shoes}</td>
 												</tr>
 												<tr>
-													<th>Eyes</th>
+													<th> EYES</th>
+
 													<td>{talent.eyes}</td>
 												</tr>
 												<tr>
-													<th>Hair</th>
+													<th> HAIR</th>
 													<td>{talent.hair}</td>
 												</tr>
 											</table>
 											<div className="pdf_btn">
-												<i
-													className="fa fa-instagram"
-													style={{ fontsize: "24px", display: "block" }}
-												></i>
-												<a href="#">@thereinsta</a>
-												<button>
-													{" "}
-													<a
-														target="_blank"
-														href={`${config.URL}${talent.pdf_route}`}
-													>
-														Create <strong>PDF</strong>
-													</a>
-												</button>
+												<i class="fa fa-instagram" style={{ fontsize: "24px", display: "block" }}></i>
+												<a href={"https://www.instagram.com/" + formatInstagramContext(talent.instagram)}>@{formatInstagramContext(talent.instagram)}</a>
+												<div>
+													<section className="flex justify-center mt-5 helvetica-neue about-office-buttons" >
+														<button className="focus: uppercase hover:font-extrabold"> <a target="_blank" href={`${config.URL}${talent.pdf_route}`} style={{ color: 'black', fontSize: '12px' }}>Create PDF</a></button>
+													</section>
+												</div>
 											</div>
 										</div>
 									</div>
-									{this.state.renderSlider &&
-									this.state.sliderItems.length > 0 ? null : (
-										<div className="col-sm-4">
-											<img
-												style={{ width: "320px" }}
-												className="image center-image"
-												src={`https://api.systemagency.com${talent.Resources[0].route}`}
-												alt={talent.name}
-											></img>
-										</div>
-									)}
+									{
+										this.state.renderSlider && this.state.sliderItems.length > 0 ?
+											null
+											:
+											<div className="col-sm-4">
+												<img style={{ width: '320px' }} className="image center-image" src={`https://api.systemagency.com${talent.Resources[0].route}`} alt={talent.name} ></img>
+											</div>
+									}
 
 									<div className="col-sm-8">
-										{this.state.renderSlider &&
-										this.state.sliderItems.length > 0 ? (
-											<div>
-												<SliderImages
-													type={this.state.type}
-													sliderItems={this.state.sliderItems}
-												/>
-											</div>
-										) : null}
-										<div
-											className="detail_btn"
-											style={{
-												marginLeft: "50px",
-												marginTop: "50px",
-												fontStyle: "italic",
-											}}
-										>
-											<label
-												className={
-													this.state.type == "talent_portfolio" ? "active" : ""
-												}
-												onClick={() => this.silderShow("talent_portfolio")}
-											>
-												PORTFOLIO
-											</label>
-											<label
-												className={
-													this.state.type == "talent_polaroid" ? "active" : ""
-												}
-												onClick={() => this.silderShow("talent_polaroid")}
-											>
-												POLAS
-											</label>
-											<label
-												class={
-													this.state.type == "talent_video" ? "active" : ""
-												}
-												onClick={() => this.silderShow("talent_video")}
-											>
-												{" "}
-												VIDEOS
-											</label>
+										{
+											this.state.renderSlider && this.state.sliderItems.length > 0 ?
+												<div>
+													<SliderImages type={this.state.type} sliderItems={this.state.sliderItems} />
+												</div>
+												:
+												null
+										}
+										<div className="detail_btn" style={{ marginLeft: '50px', marginTop: '50px', fontStyle: 'italic' }}>
+											<label className={this.state.type == 'talent_portfolio' ? 'active' : ''} onClick={() => this.silderShow("talent_portfolio")}>PORTFOLIO</label>
+											<label className={this.state.type == 'talent_polaroid' ? 'active' : ''} onClick={() => this.silderShow("talent_polaroid")}>POLAS</label>
+											<label class={this.state.type == 'talent_video' ? 'active' : ''} onClick={() => this.silderShow("talent_video")}> VIDEOS</label>
 											{/* <button> <Link>EDIT</Link></button> */}
 										</div>
 									</div>
 								</div>
+
 							</div>
 						))}
+
 					</div>
 				</section>
 				<Footer />
