@@ -23,3 +23,23 @@
     height: 500px;
   }
 }
+
+.landscapeImg {
+  width: 100%;
+}
+
+.portraitImg {
+  width: auto;
+}
+
+@media screen and (min-width: 992px) {
+  .landscapeImg {
+    width: 100%;
+    height: 300px;
+  }
+
+  .portraitImg {
+    width: auto;
+    height: 500px;
+  }
+}
