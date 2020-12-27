@@ -99,7 +99,7 @@ class Detail extends Component {
 													<td>{talent.waist}</td>
 												</tr>
 												<tr>
-													<th> HIS</th>
+													<th> HIPS</th>
 													<td>{talent.hips}</td>
 												</tr>
 												<tr>
