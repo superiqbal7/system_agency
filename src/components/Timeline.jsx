@@ -21,9 +21,11 @@ function Timeline({ items }) {
 		})
 		.catch( err => {
 			console.log("mara khaisi", err);
-		})
+		}) 
+		let popupImg = data.popup.filter(item => item.Components[0].name === "work_photoset");
+		console.log(popupImg);
 		
-		setPopupData(data);
+		setPopupData(popupImg);
 		
 		console.log("ekhanse ashslam..", data);
 	};
@@ -37,7 +39,7 @@ function Timeline({ items }) {
 	return (
 		<div className="container">
 			<div className="cols py-10 md:py-32">
-				{items.map((item, index) => (
+				{items.map((item, index) =>  (
 					<div className={index < leftItemCount ? right : left} key={index}>
 						<div className="img-wrapper" onClick={() => showPopup(item)}>
 							<img
@@ -61,7 +63,7 @@ function Timeline({ items }) {
 				))}
 			</div>
 			{Object.keys(popUpData).length > 0 ? (
-				<Popup data={imageData} closePopup={closePopup} />
+				<Popup data={popUpData} closePopup={closePopup} />
 			) : (
 				""
 			)}
@@ -80,19 +82,15 @@ function Popup({ data, closePopup }) {
 				</span>
 			<div className="popup-content">
 				<div class="grid grid-cols-2 gap-0">
-					<div class="...">
-						<img className="popoverImg"
-							src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/2_pfytib.jpg"
-							alt="alernate text"
-						/>
+					{data.map((item, index) => (
+						<div class="...">						
+							<img
+								className="popoverImg"
+								src={`https://api.systemagency.com${item.route}`}
+								alt="placeholder alternative"
+							/>
 					</div>
-					<div class="...">
-						<img className="popoverImg"
-							src="https://res.cloudinary.com/shakilahmmeed/image/upload/v1608670639/1_fafdgi.jpg"
-							//src={`https://api.systemagency.com${data.Resources[0]}`}
-							alt="alernate text"
-						/>
-					</div>
+					))}
 				</div>
 
 				
