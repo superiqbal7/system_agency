@@ -426,6 +426,7 @@ a:hover {
 }
 .pleft {
   padding-left: 3.2rem;
+  padding-top: 0%;
   text-align: center;
 }
 .pleft table th {
@@ -436,6 +437,7 @@ a:hover {
   font-size: 30px;
   font-style: italic;
   font-weight: 100;
+  margin: 0%;
 }
 .pdf_btn {
   margin-top: 1rem;

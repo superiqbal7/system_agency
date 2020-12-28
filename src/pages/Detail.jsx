@@ -76,7 +76,7 @@ class Detail extends Component {
 		return (
 			<div>
 				<Navigation />
-				<section className="mt-6 pt-16">
+				<section className="mt-6 pt-32">
 					<div className="row mt-16">
 
 						{data.map((talent, i) => (
