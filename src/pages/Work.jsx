@@ -30,7 +30,8 @@ function Work() {
 					clientName: row["client_name"],
 					Photographer: row["photographer"],
 					Stylist: row["stylist_name"],
-					Slug: row["slug"]
+					Slug: row["slug"],
+					popup: row["Resources"]
 				});
 			}
 		});
