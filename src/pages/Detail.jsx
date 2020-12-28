@@ -85,36 +85,36 @@ class Detail extends Component {
 									<div className="col-sm-4">
 										<div className="pleft">
 											<h3 className="detailTalentLastname"><strong>{talent.name} </strong> {talent.last_name} </h3>
-											<table className="tableTalentDetails" style={{ width: '50%', marginTop: '7rem', margin: '100px auto 50px' }}>
+											<table className="tableTalentDetails helvetica-neue-light" style={{ width: '100%', marginTop: '7rem', margin: '70px 15px 40px' }}>
 												<tr>
 													<th> HEIGHT </th>
-													<td>{talent.height}</td>
+													<td className="helvetica-neue-bold">{talent.height}</td>
 												</tr>
 												<tr>
 													<th> BUST</th>
-													<td>{talent.bust}</td>
+													<td className="helvetica-neue-bold">{talent.bust}</td>
 												</tr>
 												<tr>
 													<th> WAIST</th>
-													<td>{talent.waist}</td>
+													<td className="helvetica-neue-bold">{talent.waist}</td>
 												</tr>
 												<tr>
 													<th> HIPS</th>
-													<td>{talent.hips}</td>
+													<td className="helvetica-neue-bold">{talent.hips}</td>
 												</tr>
 												<tr>
 													<th> SHOES</th>
 
-													<td>{talent.shoes}</td>
+													<td className="helvetica-neue-bold">{talent.shoes}</td>
 												</tr>
 												<tr>
 													<th> EYES</th>
 
-													<td>{talent.eyes}</td>
+													<td className="helvetica-neue-bold">{talent.eyes}</td>
 												</tr>
 												<tr>
 													<th> HAIR</th>
-													<td>{talent.hair}</td>
+													<td className="helvetica-neue-bold">{talent.hair}</td>
 												</tr>
 											</table>
 											<div className="pdf_btn">
@@ -146,7 +146,7 @@ class Detail extends Component {
 												:
 												null
 										}
-										<div className="detail_btn" style={{ marginLeft: '50px', marginTop: '50px', fontStyle: 'italic' }}>
+										<div className="detail_btn" style={{ marginLeft: '100px', marginTop: '50px', fontStyle: 'italic' }}>
 											<label className={this.state.type == 'talent_portfolio' ? 'active' : ''} onClick={() => this.silderShow("talent_portfolio")}>PORTFOLIO</label>
 											<label className={this.state.type == 'talent_polaroid' ? 'active' : ''} onClick={() => this.silderShow("talent_polaroid")}>POLAS</label>
 											<label class={this.state.type == 'talent_video' ? 'active' : ''} onClick={() => this.silderShow("talent_video")}> VIDEOS</label>
