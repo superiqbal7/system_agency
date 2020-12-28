@@ -24,14 +24,6 @@
   }
 }
 
-.landscapeImg {
-  width: 100%;
-}
-
-.portraitImg {
-  width: auto;
-}
-
 @media screen and (min-width: 992px) {
   .landscapeImg {
     width: 100%;
@@ -40,6 +32,18 @@
 
   .portraitImg {
     width: auto;
-    height: 500px;
+    height: 400px;
+  }
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 768px) {
+  .landscapeImg {
+    width: 100%;
+    height: 300px;
+  }
+
+  .portraitImg {
+    width: auto;
+    height: 300px;
   }
 }
