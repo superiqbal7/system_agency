@@ -416,13 +416,14 @@ a:hover {
   color: brown;
 }
 .pleft table tr {
-  font-size: 16px;
   padding: 0 5px;
 }
 .pleft table td {
   padding: 0.8rem;
   font-weight: bold;
   text-align: left;
+  font-size: 12px;
+  font-weight: 600;
 }
 .pleft {
   padding-left: 3.2rem;
@@ -430,8 +431,11 @@ a:hover {
   text-align: center;
 }
 .pleft table th {
+  font-size: 12px;
+  padding-left: 0.5rem;
   text-align: right;
   font-weight: normal;
+  padding-right: 15px;
 }
 .pleft h3 {
   font-size: 30px;
