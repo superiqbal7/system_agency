@@ -61,8 +61,8 @@ function Home() {
 							<div
 								className={
 									image.Resources[0].width > image.Resources[0].height
-										? "col-span-4"
-										: "col-span-2"
+										? "col-span-4 "
+										: "col-span-2 "
 								}
 							>
 								<div className="text-center mb-3">

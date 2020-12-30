@@ -27,23 +27,27 @@
 @media screen and (min-width: 992px) {
   .landscapeImg {
     width: 100%;
-    height: 300px;
+    height: auto;
   }
 
   .portraitImg {
-    width: auto;
-    height: 400px;
+    width: 100%;
+    height: 450px;
   }
 }
 
-@media only screen and (max-width: 1000px) and (min-width: 768px) {
+@media only screen and (max-width: 993px) and (min-width: 768px) {
   .landscapeImg {
     width: 100%;
-    height: 300px;
+    height: auto;
   }
 
   .portraitImg {
-    width: auto;
+    width: 100%;
     height: 300px;
   }
+}
+
+.homeWidth {
+  width: 800px;
 }
