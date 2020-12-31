@@ -13,8 +13,18 @@ function Work() {
 	function filterCarouselItems(rows) {
 		const pictures = [];
 		rows.forEach((row) => {
-			if (row["main_component"] === "carousel_main") {
-				pictures.push(row["Resources"][0]["route"]);
+			if (row["main_component"] === "timeline_main") {
+				pictures.push({
+					img: row["Resources"][0]["route"],
+					talentName: row["talent_name"],
+					clientName: row["client_name"],
+					Photographer: row["photographer"],
+					Stylist: row["stylist_name"],
+					Slug: row["slug"],
+					popup: row["Resources"],
+					url: `https://${row.background_reference}`,
+					type: row.Resources[0].type,
+				});
 			}
 		});
 		return pictures;
@@ -41,7 +51,7 @@ function Work() {
 	const fetchModelWorkDeatils = async (endpoint) => {
 		const response = await axios.get(url + endpoint);
 		const rows = response.data.item.rows;
-		// console.log(response.data);
+		//console.log(rows);
 		setCarouselItems(filterCarouselItems(rows));
 		setTimelineWork(filterTimelineWork(rows));
 		setPictureCount(response.data.item.count);
@@ -58,8 +68,8 @@ function Work() {
 			<div className="my-64">
 				{pictureCount > 0 ? (
 					<div>
-						{console.log("carousel is", timelineWork)}
-						<Carousel items={timelineWork} />
+						{console.log("carousel is", carouselItems)}
+						<Carousel items={carouselItems} />
 						<Timeline items={timelineWork} />
 					</div>
 				) : (
