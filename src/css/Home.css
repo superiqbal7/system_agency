@@ -31,7 +31,7 @@
   }
 
   .portraitImg {
-    width: 100%;
+    width: auto;
     height: 450px;
   }
 }
@@ -43,7 +43,7 @@
   }
 
   .portraitImg {
-    width: 100%;
+    width: auto;
     height: 300px;
   }
 }
