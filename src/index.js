@@ -12,6 +12,7 @@ import Detail from "../src/pages/Detail";
 import ViewPackage from "./pages/ViewPackage.jsx";
 import Work from "./pages/Work";
 import Home from "./pages/Home.jsx";
+import TalentPrivate from "./pages/TalentPrivate.jsx";
 // import TalentEdit from '../src/pages/TalentEdit'
 
 const Index = () => (
@@ -24,7 +25,7 @@ const Index = () => (
 				<Route path="/About" component={About} />
 				<Route path="/Office" component={Office} />
 				<Route path="/login" component={LoginPage} />
-				<Route path="/landingpage" component={LandingPage} />
+				<Route path="/landingpage" component={Home} />
 				<Route exact path="/talents" component={Talents} />
 				<Route path="/flash" component={Flash} />
 				<Route path="/representations" component={Representations} />
@@ -36,6 +37,7 @@ const Index = () => (
 					component={ViewPackage}
 				/>
 				<Route exact path="/home" component={Home} />
+				<Route exact path="/addTalent" component={TalentPrivate} />
 				{/* <Route  path="/talents/:slug/edit" component={TalentEdit}/> */}
 			</Switch>
 		</React.Fragment>
