@@ -51,7 +51,7 @@ function Home() {
 					controls
 					width="100%"
 					height="100%"
-					url="https://api.systemagency.com/assets/28418e5d/system_main.mp4"
+					url="https://res.cloudinary.com/djhzlslux/video/upload/v1609391159/system_main_bvarm6.mp4"
 				/>
 			</div>
 			<div className="container pt-64 pb-36">
