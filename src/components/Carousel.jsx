@@ -22,7 +22,7 @@ export default class SimpleSlider extends Component {
 		return (
 			<div className="carousel">
 				<Slider {...settings}>
-					{items.map((item) => (
+					{items.map((item) => item.type === "image/jpeg" ? (
 						<div className="img-wrapper">
 							<div className="info">
 								<h5 className="name">
@@ -40,7 +40,7 @@ export default class SimpleSlider extends Component {
 								alt="alter"
 							/>
 						</div>
-					))}
+					) : "")}
 				</Slider>
 			</div>
 		);
