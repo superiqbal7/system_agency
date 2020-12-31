@@ -168,7 +168,17 @@ class Talents extends Component {
 								</a>
 							</div>
 
-							{image.is_requested ?
+							{
+								this.state.isAdmin ? (
+									<div className="top-right top-right-fix">
+										<button className="share">
+											<Link >Edit</Link></button>
+										<button >
+											<Link >Delete</Link></button>
+									</div>
+								) :
+								
+								image.is_requested ?
 
 								<div className="top-right top-right-fix">
 									<h4 className="">ADDED</h4>
