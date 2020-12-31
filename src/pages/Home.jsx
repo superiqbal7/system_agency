@@ -94,7 +94,7 @@ function Home() {
 									style={{ }}
 								/>
 								<div className="helvetica-neue-light text-center italic text-lg pt-5">
-									{image.description} {countimg}
+									{image.description}
 								</div>
 							</div>
 						) : index === 2 ? (
