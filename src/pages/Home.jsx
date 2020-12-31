@@ -34,6 +34,7 @@ function Home() {
 					clientName: row["client_name"],
 					Photographer: row["photographer"],
 					Stylist: row["stylist_name"],
+					type: row.Resources[0].type
 				});
 			}
 		});
