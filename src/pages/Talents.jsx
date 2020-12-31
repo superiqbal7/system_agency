@@ -15,7 +15,8 @@ class Talents extends Component {
 			selectedImages: [],
 			isActiveWomen: false,
 			isActiveMen: false,
-			currentActive: ''
+			currentActive: '',
+			isAdmin: false
 		}
 		this.loadimages = this.loadimages.bind(this);
 		this.genderImages = this.genderImages.bind(this);
@@ -24,7 +25,26 @@ class Talents extends Component {
 	componentDidMount() {
 		this.loadimages();
 		// this.deletselectAll();
+		if (localStorage.getItem('token')) {
+			//this.props.history.push('/');
+			this.state.isAdmin = true;
+		}
 	}
+
+	componentWillUnmount(){
+		if (localStorage.getItem('token')) {
+			//this.props.history.push('/');
+			this.state.isAdmin = true;
+		}
+		else {
+			this.state.isAdmin = false;
+		}
+	}
+
+	// 	if (window.location.href.includes('logged_out')) {
+	// 		this.setState({ loggedOut: true });
+	// 	}
+	// }
 
 	loadimages = () => {
 		axios.get(`${config.URL}/talent/section`)
@@ -100,6 +120,11 @@ class Talents extends Component {
 
 	openTab = (url) => {
 		window.open(url, '_blank');
+	}
+
+	logout = () => {
+		localStorage.removeItem('token');
+		window.location = '/login?logged_out';
 	}
 
 	// https://stackoverflow.com/questions/42391499/react-render-new-row-every-4th-column
@@ -329,8 +354,28 @@ class Talents extends Component {
           DESELECT ALL
         </span>
       </div> */}
+{ //Side bar :: for admin - Logout & Add Talent :: for user - View package & Deselect all
+}
+					{
+						this.state.isAdmin ? (
+							<div>
+								<div className="new-left-panel">
+									<button className="view-package"
+										onClick={this.logout}
+									>LOG OUT</button>
+									<button className="deselect-all"
+										onClick={() => this.openTab(`/addTalent`)}
+									>ADD TALENT</button>
 
-					<div>
+								</div>
+								<div className="talent-content">
+									<div className="container pad" style={{ width: '80%', marginTop: '60px' }}>
+										{contents}
+									</div>
+								</div>
+							</div>
+						) : (
+							<div>
 						<div className="new-left-panel">
 							<button className="view-package"
 								onClick={() => {
@@ -352,7 +397,10 @@ class Talents extends Component {
 								{contents}
 							</div>
 						</div>
-					</div>
+					</div >
+						)
+					}
+					
 
 				</div>
 
