@@ -3,6 +3,7 @@ import SystemAgencyLogo from '../assets/system-agency-logo.png';
 import Footer from '../components/Footer.jsx';
 import Flash from '../components/Flash.jsx';
 import '../fonts/stylesheet.css';
+import { Link } from "react-router-dom";
 
 class LoginPage extends Component {
   constructor(props) {
@@ -15,9 +16,17 @@ class LoginPage extends Component {
         {this.state.loggedOut && <Flash closeFlash={this.closeFlash} message="Logged out successfully." />}
         <section className="container-login">
           <div>
-            <div className="container-logo flex justify-center mb-16">
-              <img src={SystemAgencyLogo} width="220px" alt="" />
-            </div>
+
+            <Link to="/home">
+              <div className="bg-white" style={{ marginTop: "-10px" }}>
+                <img
+                  className="pt-10 pb-6 cursor-pointer mx-auto"
+                  src={SystemAgencyLogo}
+                  alt=""
+                  width="170px"
+                />
+              </div>
+            </Link>
             <p className="text-login uppercase text-3xl text-center mb-2" >login into the site</p>
             <div>
               <input
@@ -49,7 +58,7 @@ class LoginPage extends Component {
     const axios = require('axios');
     const formData = new FormData();
     const vm = this;
-    formData.append('system_email', 'jhon');
+    formData.append('system_email', 'iqbal');
     formData.append('system_password', '1234');
     console.log(formData);
 
