@@ -10,6 +10,8 @@ function Home() {
 	const [images, setImages] = useState([]);
 	const [timelineWork, setTimelineMain] = useState([]);
 
+	let countimg = 0;
+
 	useEffect(() => {
 		//axios.get(`${config.URL}/work?main_component=timeline_main`)
 		axios.get(`${config.URL}/work`).then((response) => {
@@ -34,11 +36,16 @@ function Home() {
 					clientName: row["client_name"],
 					Photographer: row["photographer"],
 					Stylist: row["stylist_name"],
-					type: row.Resources[0].type
+					url: `https://${row.background_reference}`,
+					type: row.Resources[0].type,
 				});
 			}
 		});
 		return timelineWork;
+	}
+
+	let PortraitImgIndex = () => {
+		countimg++;
 	}
 
 	return (
@@ -59,16 +66,21 @@ function Home() {
 				<div className="grid grid-cols-4 gap-x-64 gap-y-32 w-3/4 mx-auto">
 					{images.map((image, index) =>
 						image.Resources[0].type === "image/jpeg" ? (
+							
 							<div
 								className={
 									image.Resources[0].width > image.Resources[0].height
 										? "col-span-4 "
 										: "col-span-2 "
 								}
-							>
-								<div className="text-center mb-3">
-									<p className="font-bold m-0">{image.talent_name}</p>
-									<small>{image.client_name}</small>
+							> 
+								{image.Resources[0].width < image.Resources[0].height ? PortraitImgIndex() : ""}
+								<div className={
+									image.Resources[0].width < image.Resources[0].height && countimg % 2 == 1 ? "text-center mb-3" : image.Resources[0].width < image.Resources[0].height && countimg % 2 == 1 ? "text-center mb-3 text-right" : "text-center mb-3"
+								}>
+									<p className="helvetica-neue font-bold italic m-0">{image.talent_name}</p>	
+									<a target="_blank" className="helvetica-neue-light italic" href={`https://${image.background_reference}`}><small className="text-black hover:font-semibold">{image.client_name}</small></a>
+									
 								</div>
 								
 								<img
@@ -77,18 +89,18 @@ function Home() {
 									className={
 										image.Resources[0].width > image.Resources[0].height
 											? "landscapeImg"
-											: "portraitImg"
+											: image.Resources[0].width < image.Resources[0].height && countimg % 2 == 1 ? "portraitImg leftImg ml-0" : "portraitImg rightImg ml-auto"
 									}
-									style={{  }}
+									style={{ }}
 								/>
-								<div className="text-center font-base pt-5 px-10">
-									{image.description}
+								<div className="helvetica-neue-light text-center italic text-lg pt-5">
+									{image.description} {countimg}
 								</div>
 							</div>
 						) : index === 2 ? (
 							<div className="col-span-4">
 								<ReactPlayer
-									playing={true}
+									playing={false}
 									width="100%"
 									height="100%"
 									controls
