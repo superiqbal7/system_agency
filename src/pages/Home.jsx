@@ -97,7 +97,7 @@ function Home() {
 									{image.description}
 								</div>
 							</div>
-						) : index === 2 ? (
+						) :  (
 							<div className="col-span-4">
 								<ReactPlayer
 									playing={true}
@@ -110,8 +110,6 @@ function Home() {
 									//url="https://res.cloudinary.com/djhzlslux/video/upload/v1608802611/FENDIxHIGHSNOB_16x9.mov_yqasxb.mp4"
 								/>
 							</div>
-						) : (
-							""
 						)
 					)}
 				</div>
