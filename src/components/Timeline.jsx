@@ -77,9 +77,9 @@ function Popup({ data, closePopup }) {
 	console.log(data);
 	return (
 		<div className="popup">
-			<span className="close" onClick={closePopup}>
-				&times;
-				</span>
+			<div style={{ zIndex: 1 }} className="close">
+				<i style={{ cursor: 'pointer' }} onClick={closePopup} className="material-icons md-1"> clear</i>
+			</div>
 			<div className="popup-content">
 				<div class="grid grid-cols-2 gap-0">
 					{data.map((item, index) => (
