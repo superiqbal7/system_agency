@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import "../css/Timeline.css";
 import config from "../config";
+import ReactPlayer from "react-player";
 //const url = "https://api.systemagency.com/talent/";
 
 function Timeline({ items }) {
@@ -12,22 +13,10 @@ function Timeline({ items }) {
 	let leftItemCount = Math.ceil(items.length / 2);
 
 	let showPopup = (data) => {
-		console.log(data.Slug)
-		let url = `${config.URL}/talent/section?slug=${data.Slug}`;
-		axios.get(url)
-		.then( response =>{
-				console.log(response.data);
-				setImageData(response.data.item.rows[0]);
-		})
-		.catch( err => {
-			console.log("mara khaisi", err);
-		}) 
 		let popupImg = data.popup.filter(item => item.Components[0].name === "work_photoset");
 		console.log(popupImg);
 		
 		setPopupData(popupImg);
-		
-		console.log("ekhanse ashslam..", data);
 	};
 
 	let closePopup = () => {
@@ -81,15 +70,31 @@ function Popup({ data, closePopup }) {
 				<i style={{ cursor: 'pointer' }} onClick={closePopup} className="material-icons md-1"> clear</i>
 			</div>
 			<div className="popup-content">
-				<div class="grid grid-cols-2 gap-0">
-					{data.map((item, index) => (
-						<div class="...">						
+				<div className =
+				
+				"grid grid-cols-2 gap-0">
+					{data.map((item, index) => item.type === "image/jpeg" ? (
+						
+						<div className={item.width < item.height ? "col-span-1" : "col-span-2"}>						
 							<img
 								className="popoverImg"
 								src={`https://api.systemagency.com${item.route}`}
 								alt="placeholder alternative"
 							/>
 					</div>
+					): (
+							<div className="col-span-2">
+								<ReactPlayer
+									playing={true}
+									volume="0"
+									muted={true}
+									width="100%"
+									height="100%"
+									controls
+									//src={`https://api.systemagency.com${item.route}`}
+									url="https://res.cloudinary.com/djhzlslux/video/upload/v1608802611/FENDIxHIGHSNOB_16x9.mov_yqasxb.mp4"
+								/>
+							</div>
 					))}
 				</div>
 
