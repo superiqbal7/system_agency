@@ -7,7 +7,6 @@ import ReactPlayer from "react-player";
 
 function Timeline({ items }) {
 	const [popUpData, setPopupData] = useState({});
-	const [imageData, setImageData] = useState({});
 	const left = "item-container left-content";
 	const right = "item-container right-content";
 	let leftItemCount = Math.ceil(items.length / 2);
