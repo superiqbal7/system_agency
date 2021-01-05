@@ -76,23 +76,24 @@ function Home() {
 							> 
 								{image.Resources[0].width < image.Resources[0].height ? PortraitImgIndex() : ""}
 								<div className={
-									image.Resources[0].width < image.Resources[0].height && countimg % 2 == 1 ? "text-center mb-3" : image.Resources[0].width < image.Resources[0].height && countimg % 2 == 1 ? "text-center mb-3 text-right" : "text-center mb-3"
+									image.Resources[0].width < image.Resources[0].height && countimg % 2 == 1 ? "text-center imgtext mb-3" : image.Resources[0].width < image.Resources[0].height && countimg % 2 == 1 ? "text-center mb-3 text-right imgtext" : "text-center mb-3 imgtext"
 								}>
 									<p className="helvetica-neue font-bold italic m-0">{image.talent_name}</p>	
 									<a target="_blank" className="helvetica-neue-light italic" href={`https://${image.background_reference}`}><small className="text-black hover:font-semibold">{image.client_name}</small></a>
 									
 								</div>
+									<img
+										src={config.URL + image.Resources[0].route}
+										alt="magazine"
+										className={
+											image.Resources[0].width > image.Resources[0].height
+												? "landscapeImg"
+												: image.Resources[0].width < image.Resources[0].height && countimg % 2 == 1 ? "portraitImg leftImg ml-0" : "portraitImg rightImg ml-auto"
+										}
+										style={{}}
+									/>
+
 								
-								<img
-									src={config.URL + image.Resources[0].route}
-									alt="magazine"
-									className={
-										image.Resources[0].width > image.Resources[0].height
-											? "landscapeImg"
-											: image.Resources[0].width < image.Resources[0].height && countimg % 2 == 1 ? "portraitImg leftImg ml-0" : "portraitImg rightImg ml-auto"
-									}
-									style={{ }}
-								/>
 								<div className="helvetica-neue-light text-center italic text-lg pt-5">
 									{image.description}
 								</div>
