@@ -68,10 +68,8 @@ function Popup({ data, closePopup }) {
 			<div style={{ zIndex: 1 }} className="close">
 				<i style={{ cursor: 'pointer' }} onClick={closePopup} className="material-icons md-1"> clear</i>
 			</div>
-			<div className="popup-content">
-				<div className =
-				
-				"grid grid-cols-2 gap-0">
+			<div className="popup-content h-1/2">
+				<div className ="grid grid-cols-2 gap-0">
 					{data.map((item, index) => item.type === "image/jpeg" ? (
 						
 						<div className={item.width < item.height ? "col-span-1" : "col-span-2"}>						
@@ -87,8 +85,8 @@ function Popup({ data, closePopup }) {
 									playing={true}
 									volume="0"
 									muted={true}
-									width="100%"
-									height="100%"
+									width="auto"
+									height="auto"
 									controls
 									//src={`https://api.systemagency.com${item.route}`}
 									url="https://res.cloudinary.com/djhzlslux/video/upload/v1608802611/FENDIxHIGHSNOB_16x9.mov_yqasxb.mp4"
