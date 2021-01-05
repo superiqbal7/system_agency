@@ -75,7 +75,7 @@ class Talents extends Component {
 	}
 
 	requestImage = (index) => {
-		console.log(index);
+		//console.log(index);
 		let images = this.state.images;
 		let image = images[index]
 		image.is_requested = true;
@@ -83,6 +83,44 @@ class Talents extends Component {
 		this.setState({ ...this.state, images: images });
 		this.state.selectedImages.push(index);
 		console.log("faisal", this.state.images)
+	}
+
+	editTalent = (index) => {
+
+	}
+
+	deleteTalent = (index) => {
+		//console.log(index);
+		let talents = this.state.images;
+		let talentId = talents[index].slug;
+		console.log(talentId);
+		const formdata = new FormData();
+		formdata.append("slug", talentId);
+		const body = {
+			slug: talentId
+		};
+		const token = localStorage.getItem('token');
+
+		console.log(token)
+
+		const access_token = token
+		const slug = talentId
+
+		axios.delete(`${config.URL}/talent`, {
+			headers: {
+				'Authorization': `Bearer ${access_token}`,
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify([
+				slug
+			])
+		})
+			.then(function (response) {
+				//handle success
+				console.log(response);
+			})
+			.catch(err => { if (err.request) { console.log(err.request) } if (err.response) { console.log(err.response) } });
+
 	}
 
 	selectAll = () => {
@@ -138,10 +176,6 @@ class Talents extends Component {
 			rowContents.push(
 				<div key={i} className="col-sm-3 col-xs-3 mb-6">
 					<div className="image_text">
-
-
-
-
 						<div>
 							{image.is_requested ?
 
@@ -171,9 +205,9 @@ class Talents extends Component {
 							{
 								this.state.isAdmin ? (
 									<div className="top-right top-right-fix">
-										<button className="share">
+										<button className="share" onClick={()=> this.editTalent(i)}>
 											<Link >Edit</Link></button>
-										<button >
+										<button onClick={() => this.deleteTalent(i)}>
 											<Link >Delete</Link></button>
 									</div>
 								) :
