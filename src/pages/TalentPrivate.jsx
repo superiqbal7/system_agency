@@ -6,21 +6,27 @@ import Footer from "../components/Footer.jsx";
 import axios from "axios";
 import config from "../config";
 import SliderImages from "../pages/Slider.jsx";
+import Select from 'react-select'
 import "../css/TalentPrivate.css";
+
+const genderOptions = [
+	{ value: 'MALE', label: 'MALE' },
+	{ value: 'FEMALE', label: 'FEMALE' }
+];
 
 class TalentPrivate extends Component {
 	state = {
-		name: "aditoo",
-		gender: "male",
+		name: "",
+		gender: "",
 		category: "",
-		height: "55",
-		bust: "88",
-		waist: "56",
-		hips: "532",
-		shoes: "55",
-		eyes: "44",
-		hair: "444",
-		instagram: "aditoo",
+		height: "",
+		bust: "",
+		waist: "",
+		hips: "",
+		shoes: "",
+		eyes: "",
+		hair: "",
+		instagram: "@",
 		available: true,
 		development: true,
 	};
@@ -86,51 +92,51 @@ class TalentPrivate extends Component {
 							<div className="row">
 								<div className="col-sm-4">
 									<div
-										className="text-right w-3/4 ml-auto pleft"
-										style={{
-											fontFamily:
-												'helvetica-neue, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;',
-										}}
+										className="text-right w-3/4 ml-auto helvetica-neue-light pleft"
 									>
-										<div className="input-wrapper">
+										<div className="input-wrapper pb-4">
 											<input
 												type="text"
 												placeholder="NAME"
-												className="w-full text-center font-semibold"
+												className="w-full text-center font-semibold text-3xl"
 												style={{ marginLeft: "0px" }}
 												name="name"
 												value={this.state.name}
 												onChange={this.handleInput}
 											/>
 										</div>
-										<select
-											name="gender"
-											id="gender"
-											className="w-full uppercase input-wrapper"
-											value={this.state.gender}
-											onChange={this.handleInput}
-										>
-											<option value="..." className="uppercase">
-												Select Gender*
+										<div className="pb-4 border-gray-100 border-opacity-25 bg-transparent">
+											<select
+												name="gender"
+												id="gender"
+												className="w-full uppercase bg-transparent border-opacity-25"
+												value={this.state.gender}
+												onChange={this.handleInput}
+											>
+												<option value="..." className="uppercase">
+													Select Gender*
 											</option>
-											<option value="male">Male</option>
-											<option value="female">Female</option>
-										</select>
-										<br />
-										<select
-											name="category"
-											id="category"
-											className="w-full uppercase input-wrapper"
-											value={this.state.category}
-											onChange={this.handleInput}
-										>
-											<option value="..." className="uppercase">
-												Select Category*
+												<option value="male">Male</option>
+												<option value="female">Female</option>
+											</select>
+										</div>
+										<div className="pb-4 border-gray-100 border-opacity-25 bg-transparent">
+											<select
+												name="category"
+												id="category"
+												className="w-full uppercase input-wrapper bg-transparent"
+												value={this.state.category}
+												onChange={this.handleInput}
+											>
+												<option value="..." className="uppercase">
+													Select Category*
 											</option>
-											<option value="category1">Category 1</option>
-											<option value="category2">Category 2</option>
-											<option value="category3">Category 3</option>
-										</select>
+												<option value="category1">Category 1</option>
+												<option value="category2">Category 2</option>
+												<option value="category3">Category 3</option>
+											</select>
+										</div>
+										
 										<Input
 											label="Height"
 											name="height"
@@ -173,24 +179,27 @@ class TalentPrivate extends Component {
 											value={this.state.hair}
 											handleInput={this.handleInput}
 										/>
-										<div className="mt-16">
-											<div className="pdf_btn" style={{ width: "120px" }}>
+										<div className="my-16 text-right">
+											<div className="flex justify-center my-4 ">
 												<i
-													class="fa fa-instagram"
-													style={{ fontsize: "24px" }}
+													class="fa fa-instagram fa-2x"
+													style={{ fontsize: "40px" }}
 												></i>
 											</div>
-											<input
-												type="text"
-												placeholder="@"
-												className="text-center"
-												style={{ marginLeft: "0px" }}
-												value={this.state.instagram}
-												name="instagram"
-												onChange={this.handleInput}
-											/>
+											<div className="flex justify-center">
+												<input
+													type="text"
+													placeholder="@"
+													className="text-center"
+													style={{ marginLeft: "0px" }}
+													value={this.state.instagram}
+													name="instagram"
+													onChange={this.handleInput}
+												/>
+											</div>
 										</div>
 									</div>
+									
 								</div>
 								<div
 									className="col-sm-8 uppercase italic"
@@ -198,12 +207,11 @@ class TalentPrivate extends Component {
 								>
 									<Tabs>
 										<TabPanel>
-											<div className="screen"></div>
+											<div className="screen">Cover</div>
 											<div className="mt-4 upload-wrapper">
 												<label
 													htmlFor="file"
-													className="uppercase italic px-3 py-1"
-													style={{ border: "1px solid black" }}
+													className="uppercase italic px-3 py-1 addFile"
 												>
 													Add File(s) *
 												</label>
@@ -216,15 +224,54 @@ class TalentPrivate extends Component {
 										</TabPanel>
 										<TabPanel>
 											<div className="screen">Portfolio</div>
+											<div className="mt-4 upload-wrapper">
+												<label
+													htmlFor="file"
+													className="uppercase italic px-3 py-1 addFile"
+												>
+													Add File(s) *
+												</label>
+												<input
+													id="file"
+													type="file"
+													style={{ display: "none" }}
+												/>
+											</div>
 										</TabPanel>
 										<TabPanel>
 											<div className="screen">Polas</div>
+											<div className="mt-4 upload-wrapper">
+												<label
+													htmlFor="file"
+													className="uppercase italic px-3 py-1 addFile"
+												>
+													Add File(s) *
+												</label>
+												<input
+													id="file"
+													type="file"
+													style={{ display: "none" }}
+												/>
+											</div>
 										</TabPanel>
 										<TabPanel>
 											<div className="screen">Videos</div>
+											<div className="mt-4 upload-wrapper">
+												<label
+													htmlFor="file"
+													className="uppercase italic px-3 py-1 addFile"
+												>
+													Add File(s) *
+												</label>
+												<input
+													id="file"
+													type="file"
+													style={{ display: "none" }}
+												/>
+											</div>
 										</TabPanel>
 										<TabList className="flex justify-between w-3/4 mt-10">
-											<Tab className="focus:outline-none cursor-pointer">
+											<Tab className="focus:outline-none font-bold cursor-pointer ">
 												Cover
 											</Tab>
 											<Tab className="focus:outline-none cursor-pointer">
@@ -234,7 +281,7 @@ class TalentPrivate extends Component {
 												Polas
 											</Tab>
 											<Tab className="focus:outline-none cursor-pointer">
-												VIdeos
+												Videos
 											</Tab>
 										</TabList>
 									</Tabs>
@@ -276,3 +323,21 @@ function Input(props) {
 		</div>
 	);
 }
+
+// <div className="mt-16">
+// 	<div className="pdf_btn items-center" style={{ width: "150px" }}>
+// 		<i
+// 			class="fa fa-instagram"
+// 			style={{ fontsize: "24px" }}
+// 		></i>
+// 	</div>
+// 	<input
+// 		type="text"
+// 		placeholder="@"
+// 		className="text-center"
+// 		style={{ marginLeft: "0px" }}
+// 		value={this.state.instagram}
+// 		name="instagram"
+// 		onChange={this.handleInput}
+// 	/>
+// </div>
