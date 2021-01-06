@@ -5,15 +5,8 @@ import Navigation from "../components/Navigation.jsx";
 import Footer from "../components/Footer.jsx";
 import axios from "axios";
 import config from "../config";
-import SliderImages from "../pages/Slider.jsx";
-import Select from 'react-select'
+
 import "../css/TalentPrivate.css";
-
-const genderOptions = [
-	{ value: 'MALE', label: 'MALE' },
-	{ value: 'FEMALE', label: 'FEMALE' }
-];
-
 class TalentPrivate extends Component {
 	state = {
 		name: "",
@@ -323,21 +316,3 @@ function Input(props) {
 		</div>
 	);
 }
-
-// <div className="mt-16">
-// 	<div className="pdf_btn items-center" style={{ width: "150px" }}>
-// 		<i
-// 			class="fa fa-instagram"
-// 			style={{ fontsize: "24px" }}
-// 		></i>
-// 	</div>
-// 	<input
-// 		type="text"
-// 		placeholder="@"
-// 		className="text-center"
-// 		style={{ marginLeft: "0px" }}
-// 		value={this.state.instagram}
-// 		name="instagram"
-// 		onChange={this.handleInput}
-// 	/>
-// </div>
