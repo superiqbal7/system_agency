@@ -64,11 +64,11 @@ export default Timeline;
 function Popup({ data, closePopup }) {
 	console.log(data);
 	return (
-		<div className="popup" onClick={closePopup}>
+		<div className={data[0].type == "image/jpeg" ? "popup overflow-auto" : "popup object-center"} onClick={closePopup}>
 			<div style={{ zIndex: 1 }} className="close">
 				<i style={{ cursor: 'pointer' }} onClick={closePopup} className="material-icons md-1"> clear</i>
 			</div>
-			<div style={{ zIndex: 1 }} className="popup-content">
+			<div style={{ zIndex: 1 }} className="popup-content overflow-auto">
 					<div className="grid grid-cols-2 gap-0">
 						{data.map((item, index) => item.type === "image/jpeg" ? (
 
