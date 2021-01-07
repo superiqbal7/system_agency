@@ -64,7 +64,7 @@ export default Timeline;
 function Popup({ data, closePopup }) {
 	console.log(data);
 	return (
-		<div className={data[0].type == "image/jpeg" ? "popup overflow-auto" : "popup"}>
+		<div className={data[0].type == "image/jpeg" ? "popup overflow-scroll" : "popup"}>
 			<div style={{ zIndex: 1 }} className="close">
 				<i style={{ cursor: 'pointer' }} onClick={closePopup} className="material-icons md-1"> clear</i>
 			</div>
