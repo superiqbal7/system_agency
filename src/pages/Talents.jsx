@@ -106,20 +106,32 @@ class Talents extends Component {
 		const access_token = token
 		const slug = talentId
 
-		axios.delete(`${config.URL}/talent`, {
-			headers: {
-				'Authorization': `Bearer ${access_token}`,
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify([
-				slug
-			])
-		})
-			.then(function (response) {
-				//handle success
-				console.log(response);
-			})
-			.catch(err => { if (err.request) { console.log(err.request) } if (err.response) { console.log(err.response) } });
+//--------
+		var url = `${config.URL}/talent`;
+		var json = JSON.stringify(formdata);
+		var xhr = new XMLHttpRequest();
+		xhr.open("DELETE", url, true);
+		xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+		xhr.onload = function () {
+			console.log(JSON.parse(xhr.responseText));
+		}
+		xhr.send(formdata);
+//------------
+
+		// axios.delete(`${config.URL}/talent`, {
+		// 	headers: {
+		// 		'Authorization': `Bearer ${access_token}`,
+		// 		'Content-Type': 'application/json'
+		// 	},
+		// 	body: JSON.stringify([
+		// 		slug
+		// 	])
+		// })
+		// 	.then(function (response) {
+		// 		//handle success
+		// 		console.log(response);
+		// 	})
+		// 	.catch(err => { if (err.request) { console.log(err.request) } if (err.response) { console.log(err.response) } });
 
 	}
 
@@ -375,7 +387,7 @@ class Talents extends Component {
 									<button className="view-package"
 										onClick={this.logout}
 									>LOG OUT</button>
-									<button className="deselect-all"
+									<button className="view-package"
 										onClick={() => this.openTab(`/addTalent`)}
 									>ADD TALENT</button>
 
