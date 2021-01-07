@@ -68,8 +68,17 @@
 }
 
 .popup-contentImg {
+  position: fixed;
   background-color: #ffffff00;
-  /* width: 50%; */
+  margin: auto;
+  padding-right: 0px;
+  width: 50%;
+  height: auto;
+  position: relative;
+}
+/* 
+.popup-contentImg {
+  background-color: #ffffff00;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,7 +114,7 @@
     left: 50vw;
     transform: translate(-50%, -50%);
   }
-}
+} */
 
 .popup-content {
   background-color: #ffffff00;

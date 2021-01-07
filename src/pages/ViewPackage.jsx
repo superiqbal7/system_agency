@@ -151,7 +151,7 @@ class ViewPackage extends Component {
 		return (
 			<div>
 				<Navigation />
-				<div className="Talents mt-6 pt-16">
+				<div className="Talents mt-6 pt-32">
 					{/*       <section className="helvetica-neue-italic mx-auto">
         <div className="flex justify-center mb-2 btn-gender">
           <div className="dropdown">

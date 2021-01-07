@@ -38,6 +38,7 @@ const Index = () => (
 				/>
 				<Route exact path="/home" component={Home} />
 				<Route exact path="/addTalent" component={TalentPrivate} />
+				<Route exact path="/editTalent/:slug" component={TalentPrivate} />
 				{/* <Route  path="/talents/:slug/edit" component={TalentEdit}/> */}
 			</Switch>
 		</React.Fragment>
