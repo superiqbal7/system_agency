@@ -8,7 +8,11 @@ import config from "../config";
 
 import "../css/TalentPrivate.css";
 class TalentPrivate extends Component {
-	state = {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+		data: [],
 		name: "",
 		gender: "",
 		category: "",
@@ -22,7 +26,55 @@ class TalentPrivate extends Component {
 		instagram: "@",
 		available: true,
 		development: true,
-	};
+		}
+	}
+
+	componentDidMount() {
+		if(this.props.match.path === "/addTalent"){
+				console.log(this.props);
+		}
+		else if(this.props.match.path === "/editTalent/:slug"){
+			console.log(this.props);
+			const slug = this.props.match.params.slug
+			console.log(slug);
+			axios.get(`${config.URL}/talent?slug=${slug}`)
+				.then((response) => {
+					console.log(response);
+					this.setState({
+						data: response.data.item.rows,
+						name: response.data.item.rows[0].name,
+						gender: response.data.item.rows[0].gender,
+						category: response.data.item.rows[0].development === true ? "development" : "",
+						height: response.data.item.rows[0].height,
+						bust: response.data.item.rows[0].bust,
+						waist: response.data.item.rows[0].waist,
+						hips: response.data.item.rows[0].hips,
+						shoes: response.data.item.rows[0].shoes,
+						eyes: response.data.item.rows[0].eyes,
+						hair: response.data.item.rows[0].hair,
+						instagram: `@${response.data.item.rows[0].instagram}`,
+					})
+				});
+
+		}
+		
+	}
+
+	// state = {
+	// 	name: "",
+	// 	gender: "",
+	// 	category: "",
+	// 	height: "",
+	// 	bust: "",
+	// 	waist: "",
+	// 	hips: "",
+	// 	shoes: "",
+	// 	eyes: "",
+	// 	hair: "",
+	// 	instagram: "@",
+	// 	available: true,
+	// 	development: true,
+	// };
 
 	addTalent = () => {
 		const token = localStorage.getItem("token");
@@ -109,8 +161,8 @@ class TalentPrivate extends Component {
 												<option value="..." className="uppercase">
 													Select Gender*
 											</option>
-												<option value="male">Male</option>
-												<option value="female">Female</option>
+												<option value="men">Male</option>
+												<option value="women">Female</option>
 											</select>
 										</div>
 										<div className="pb-4 border-gray-100 border-opacity-25 bg-transparent">
@@ -124,9 +176,9 @@ class TalentPrivate extends Component {
 												<option value="..." className="uppercase">
 													Select Category*
 											</option>
-												<option value="category1">Category 1</option>
-												<option value="category2">Category 2</option>
-												<option value="category3">Category 3</option>
+												<option value="image">Image</option>
+												<option value="development">Development</option>
+												<option value="curve">Curve</option>
 											</select>
 										</div>
 										
