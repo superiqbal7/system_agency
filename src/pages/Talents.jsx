@@ -228,27 +228,6 @@ class Talents extends Component {
 
 						</div>
 
-
-						{/* <div>
-                <div className="img-box">
-                  <a href={`${url}/${image.slug}`}>
-                    <img key={image.slug} src={`https://api.systemagency.com${image.Resources[0].route}`}
-                    alt={image.name}></img>
-                  </a>
-                </div>
-                <div className="top-right top-right-fix">
-                  <button>
-                    <Link className="" data-target="#share" data-toggle="modal">Share</Link></button>
-                  <button onClick={()=>this.requestImage(i)}>
-                    <Link  className="">Request</Link></button>
-                </div>
-            </div> */}
-
-
-
-
-
-
 					</div>
 					<p className="style_heading">
 						<Link to={`${url}/${image.slug}`} style={{ color: "black" }} className="dodit-medium"> <strong className="dodit-bold">{image.name}</strong> {image.last_name}</Link>
