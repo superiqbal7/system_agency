@@ -101,7 +101,7 @@ class ViewPackage extends Component {
 				<div key={i} className="col-sm-3 col-xs-3 mb-6">
 					<div className="image_text">
 						<div>
-							<div style={{ zIndex: 1 }} className="close">
+							<div style={{ zIndex: 1 }} className="talents-close">
 								<i
 									style={{ cursor: "pointer" }}
 									onClick={() => this.removeImage(i)}
@@ -206,6 +206,7 @@ class ViewPackage extends Component {
 								data-target="#request"
 								data-toggle="modal"
 								className="view-packages"
+								
 							>
 								SAVE AND REQUEST
 							</button>
