@@ -76,7 +76,7 @@ function Home() {
 							> 
 								{image.Resources[0].width < image.Resources[0].height ? PortraitImgIndex() : ""}
 								<div className={
-									image.Resources[0].width < image.Resources[0].height && countimg % 2 == 1 ? "text-center imgtext mb-3 ml-0" : image.Resources[0].width < image.Resources[0].height && countimg % 2 == 1 ? "text-center mb-3 text-right imgtext ml-auto" : "text-center mb-3 imgtext"
+									image.Resources[0].width < image.Resources[0].height && countimg % 2 == 1 ? "text-left imgtext mb-3 ml-0" : image.Resources[0].width < image.Resources[0].height && countimg % 2 == 0 ? "text-right mb-3 imgtext ml-auto" : "text-center mb-3 imgtext"
 								}>
 									<p className="helvetica-neue font-bold italic m-0">{image.talent_name}</p>	
 									<a target="_blank" className="helvetica-neue-light italic" href={`https://${image.background_reference}`}><small className="text-black hover:font-semibold">{image.client_name}</small></a>
@@ -104,16 +104,24 @@ function Home() {
 							</div>
 						) :  (
 							<div className="col-span-4">
+									<div className="text-center imgtext">
+										<p className="helvetica-neue font-bold italic mb-0">{image.talent_name}</p>
+										<a target="_blank" className="helvetica-neue-light italic" href={`https://${image.background_reference}`}><small className="text-black hover:font-semibold">{image.client_name}</small></a>
+									</div>
 								<ReactPlayer
+									className="mt-0 pt-0"
 									playing={true}
 									volume= "0"
 									muted= {true}
 									width="100%"
-									height="100%"
+									height="auto"
 									controls
 									url={config.URL + image.Resources[0].route}
 									//url="https://res.cloudinary.com/djhzlslux/video/upload/v1608802611/FENDIxHIGHSNOB_16x9.mov_yqasxb.mp4"
 								/>
+									<div className="helvetica-neue-light text-center italic text-lg">
+										{image.description}
+									</div>
 							</div>
 						)
 					)}

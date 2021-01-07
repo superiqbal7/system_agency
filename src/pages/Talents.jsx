@@ -228,27 +228,6 @@ class Talents extends Component {
 
 						</div>
 
-
-						{/* <div>
-                <div className="img-box">
-                  <a href={`${url}/${image.slug}`}>
-                    <img key={image.slug} src={`https://api.systemagency.com${image.Resources[0].route}`}
-                    alt={image.name}></img>
-                  </a>
-                </div>
-                <div className="top-right top-right-fix">
-                  <button>
-                    <Link className="" data-target="#share" data-toggle="modal">Share</Link></button>
-                  <button onClick={()=>this.requestImage(i)}>
-                    <Link  className="">Request</Link></button>
-                </div>
-            </div> */}
-
-
-
-
-
-
 					</div>
 					<p className="style_heading">
 						<Link to={`${url}/${image.slug}`} style={{ color: "black" }} className="dodit-medium"> <strong className="dodit-bold">{image.name}</strong> {image.last_name}</Link>
@@ -386,18 +365,7 @@ class Talents extends Component {
 						</div>
 
 					</section>
-					{/* <div className="side-labels">
-        <span className="view-packages"> 
-         <button onClick={()=>{   
-           this.openTab(`/viewpackage/${this.state.selectedImages.join(',')}`);
-           //page reloads and selected images disappears
-           this.deletselectAll();
-        }} style={{color:"#333",textDecoration:"none",fontsize:"14px"}} > VIEW PACKAGE</button>
-        </span>
-        <span className="deselect-all" onClick={()=>this.deletselectAll()}>
-          DESELECT ALL
-        </span>
-      </div> */}
+
 { //Side bar :: for admin - Logout & Add Talent :: for user - View package & Deselect all
 }
 					{
