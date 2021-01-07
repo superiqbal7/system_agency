@@ -217,7 +217,9 @@ class Talents extends Component {
 							{
 								this.state.isAdmin ? (
 									<div className="top-right top-right-fix">
-										<button className="share" onClick={()=> this.editTalent(i)}>
+										<button className="share" onClick={() => {
+											this.openTab(`/editTalent/${image.slug}`);
+											}}>
 											<Link >Edit</Link></button>
 										<button onClick={() => this.deleteTalent(i)}>
 											<Link >Delete</Link></button>
