@@ -389,7 +389,7 @@ class Talents extends Component {
 						) : (
 							<div>
 						<div className="new-left-panel">
-							<button className="view-package"
+							<button className="view-package" 
 								onClick={() => {
 									this.openTab(`/viewpackage/${this.state.selectedImages.join(',')}`);
 									//page reloads and selected images disappears
@@ -399,7 +399,7 @@ class Talents extends Component {
 
 								}}
 							>VIEW PACKAGE</button>
-							<button className="deselect-all"
+							<button className="deselect-all view-package"
 								onClick={() => this.deletselectAll()}
 							>DESELECT ALL</button>
 

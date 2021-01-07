@@ -486,6 +486,14 @@ a:hover {
   width: 30px;
 }
 
+.view-packages {
+  font-size: 1vw;
+}
+
+.view-package {
+  font-size: 0.7vw;
+}
+
 /* 
 @media screen and (min-width: 1101px) {
     .view-packages {
