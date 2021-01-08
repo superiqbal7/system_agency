@@ -16,7 +16,6 @@ class Detail extends Component {
 			sliderItems: [],
 			type: null
 		}
-
 	}
 
 	componentDidMount() {
@@ -84,43 +83,43 @@ class Detail extends Component {
 										<div className="col-sm-4 ">
 											<div className="pleft">
 												<h3 className="detailTalentLastname"><strong>{talent.name} </strong> {talent.last_name} </h3>
-												<table className="tableTalentDetails helvetica-neue-light" style={{ width: '100%', marginTop: '7rem', margin: '70px 15px 40px' }}>
+												<table className="tableTalentDetails helvetica-neue-light" style={{ width: '100%', marginTop: '7rem', margin: '100px 15px 40px' }}>
 													<tr>
 														<th> HEIGHT </th>
-														<td className="helvetica-neue-bold">{talent.height}</td>
+														<td className="helvetica-neue-medium italic">{talent.height}</td>
 													</tr>
 													<tr>
 														<th> BUST</th>
-														<td className="helvetica-neue-bold">{talent.bust}</td>
+														<td className="helvetica-neue-medium italic">{talent.bust}</td>
 													</tr>
 													<tr>
 														<th> WAIST</th>
-														<td className="helvetica-neue-bold">{talent.waist}</td>
+														<td className="helvetica-neue-medium italic">{talent.waist}</td>
 													</tr>
 													<tr>
 														<th> HIPS</th>
-														<td className="helvetica-neue-bold">{talent.hips}</td>
+														<td className="helvetica-neue-medium italic">{talent.hips}</td>
 													</tr>
 													<tr>
 														<th> SHOES</th>
 
-														<td className="helvetica-neue-bold">{talent.shoes}</td>
+														<td className="helvetica-neue-medium italic">{talent.shoes}</td>
 													</tr>
 													<tr>
 														<th> EYES</th>
 
-														<td className="helvetica-neue-bold">{talent.eyes}</td>
+														<td className="helvetica-neue-medium italic">{talent.eyes}</td>
 													</tr>
 													<tr>
 														<th> HAIR</th>
-														<td className="helvetica-neue-bold">{talent.hair}</td>
+														<td className="helvetica-neue-medium italic">{talent.hair}</td>
 													</tr>
 												</table>
 												<div className="pdf_btn">
 													<i class="fa fa-instagram" style={{ fontsize: "24px", display: "block" }}></i>
 													<a className="helvetica-neue-italic" href={"https://www.instagram.com/" + formatInstagramContext(talent.instagram)}>@{formatInstagramContext(talent.instagram)}</a>
 													<div>
-														<section className="flex justify-center mt-5 helvetica-neue-thin italic about-office-buttons" >
+														<section className="flex justify-center mt-2 helvetica-neue-thin italic about-office-buttons" >
 															<button className=" hover:font-extrabold"> <a target="_blank" href={`${config.URL}${talent.pdf_route}`} style={{ color: 'black', fontSize: '12px' }}>create pdf</a></button>
 														</section>
 													</div>
@@ -134,7 +133,7 @@ class Detail extends Component {
 											null
 											:
 											<div className="col-sm-4">
-												<img style={{ width: '320px' }} className="image center-image" src={`https://api.systemagency.com${talent.Resources[0].route}`} alt={talent.name} ></img>
+												<img style={{ width: '340px' }} className="image center-image" src={`https://api.systemagency.com${talent.Resources[0].route}`} alt={talent.name} ></img>
 											</div>
 									}
 
@@ -150,7 +149,7 @@ class Detail extends Component {
 									</div>
 								</div>
 
-								<div className="detail_btn text-center my-40" style={{ fontStyle: 'italic' }}>
+								<div className="detail_btn text-center my-4" style={{ fontStyle: 'italic' }}>
 									<label className={this.state.type == 'talent_portfolio' ? 'active px-12' : 'px-12'} onClick={() => this.silderShow("talent_portfolio")}>PORTFOLIO</label>
 									<label className={this.state.type == 'talent_polaroid' ? 'active px-12' : 'px-12'} onClick={() => this.silderShow("talent_polaroid")}>POLAS</label>
 									<label class={this.state.type == 'talent_video' ? 'active px-12' : 'px-12'} onClick={() => this.silderShow("talent_video")}> VIDEOS</label>

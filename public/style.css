@@ -419,10 +419,10 @@ a:hover {
   padding: 0 5px;
 }
 .pleft table td {
-  padding: 0.8rem;
+  padding: 0.2rem;
   font-weight: bold;
   text-align: left;
-  font-size: 12px;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 .pleft {
@@ -431,7 +431,7 @@ a:hover {
   text-align: center;
 }
 .pleft table th {
-  font-size: 12px;
+  font-size: 1.5rem;
   padding-left: 0.5rem;
   text-align: right;
   font-weight: normal;
