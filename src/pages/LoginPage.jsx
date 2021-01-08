@@ -8,15 +8,26 @@ import { Link } from "react-router-dom";
 class LoginPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      email: "",
+      password: "",
+      submit: ""
+    }
   }
+
+  handleInput = (e) => {
+		this.setState({
+			[e.target.name]: e.target.value,
+		});
+	};
+
+
   render() {
     return (
       <div className="max-w-xl mx-auto py-32">
         {this.state.loggedOut && <Flash closeFlash={this.closeFlash} message="Logged out successfully." />}
         <section className="container-login">
           <div>
-
             <Link to="/home">
               <div className="bg-white" style={{ marginTop: "-10px" }}>
                 <img
@@ -33,6 +44,9 @@ class LoginPage extends Component {
                 className="input-login focus:outline-none border-b border-gray-700 py-2 w-full mt-3 mb-2 placeholder-gray-700 pl-4 helvetica-neue-thin"
                 style={{ 'font-size': '11px' }}
                 type="email"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleInput}
                 placeholder="Email*" />
             </div>
             <div>
@@ -40,9 +54,13 @@ class LoginPage extends Component {
                 className="input-login focus:outline-none border-b border-gray-700 py-2 w-full mb-16 placeholder-gray-700 pl-4 helvetica-neue-thin"
                 style={{ 'font-size': '11px' }}
                 type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.handleInput}
                 placeholder="Password*" />
             </div>
             <button onClick={this.login}
+                value={this.state.submit}
                 className="text-login uppercase bg-black text-white w-full py-4 border-t-2 border-l-2 border-gray-700 helvetica-neue-thin font-bold"
                 style={{ 'font-size': '11px '}}>
               submit
@@ -58,8 +76,8 @@ class LoginPage extends Component {
     const axios = require('axios');
     const formData = new FormData();
     const vm = this;
-    formData.append('system_email', 'iqbal');
-    formData.append('system_password', '1234');
+    formData.append('system_email', this.state.email);
+    formData.append('system_password', this.state.password);
     console.log(formData);
 
     axios.post('https://api.systemagency.com/auth', formData)
