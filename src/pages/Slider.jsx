@@ -23,7 +23,7 @@ class SliderImages extends Component {
 			slidesToScroll: 1,
 			centerMode: true,
 			adaptiveHeight: true,
-			variableWidth: true,
+
 		};
 		if (this.props.type === "talent_portfolio") {
 			settings = {
