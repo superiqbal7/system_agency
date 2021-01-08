@@ -82,9 +82,10 @@ class Detail extends Component {
 									{this.state.type == 'talent_video' ? ' ' : (
 										<div className="col-sm-4 ">
 											<div className="pleft">
-												<h3 className="detailTalentLastname"><strong>{talent.name} </strong> {talent.last_name} </h3>
-												<table className="tableTalentDetails helvetica-neue-light" style={{ width: '100%', marginTop: '7rem', margin: '100px 15px 40px' }}>
-													<tr>
+												<h3 className="detailTalentLastname flex justify-center"><strong>{`${talent.name}${" "}`}</strong> {talent.last_name} </h3>
+												<div className="flex justify-center">
+												<table className="tableTalentDetails helvetica-neue-light" style={{ width: '100%', marginTop: '7rem', margin: '100px 15px 40px auto' }}>
+													<tr className="fles justify-center" style={{ width: '100%'}}>
 														<th> HEIGHT </th>
 														<td className="helvetica-neue-medium italic">{talent.height}</td>
 													</tr>
@@ -115,8 +116,10 @@ class Detail extends Component {
 														<td className="helvetica-neue-medium italic">{talent.hair}</td>
 													</tr>
 												</table>
+												</div>
+												
 												<div className="pdf_btn">
-													<i class="fa fa-instagram" style={{ fontsize: "24px", display: "block" }}></i>
+													<a href={"https://www.instagram.com/" + formatInstagramContext(talent.instagram)}><i class="fa fa-instagram" style={{ fontsize: "24px", display: "block" }}></i></a>
 													<a className="helvetica-neue-italic" href={"https://www.instagram.com/" + formatInstagramContext(talent.instagram)}>@{formatInstagramContext(talent.instagram)}</a>
 													<div>
 														<section className="flex justify-center mt-2 helvetica-neue-thin italic about-office-buttons" >
