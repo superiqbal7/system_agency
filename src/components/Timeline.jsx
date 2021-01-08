@@ -38,7 +38,7 @@ function Timeline({ items }) {
 						</div>
 						<div className="content">
 							<strong>
-								<b className="name">{item.talentName}</b>
+								<b className="name capitalize">{item.talentName}</b>
 							</strong>
 							<div> {item.clientName} </div>
 							<div>Stylist: {item.Stylist === null ? "No" : item.Stylist}</div>
