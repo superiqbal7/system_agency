@@ -46,7 +46,7 @@ class SliderImages extends Component {
 
 		console.log(images);
 		return (
-			<div style={{ width: "90%" }}>
+			<div style={{ width: "100%" }}>
 				<Slider {...settings}>
 					{images.map((image, i) => (
 						<div className="slider-image-wrapper">

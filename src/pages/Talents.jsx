@@ -56,7 +56,8 @@ class Talents extends Component {
 				})
 				//save images variable in state
 				this.setState({
-					images
+					images,
+					gender: "all"
 				})
 			});
 	}
@@ -69,7 +70,8 @@ class Talents extends Component {
 		axios.get(url)
 			.then((response) => {
 				this.setState({
-					images: response.data.item.rows
+					images: response.data.item.rows,
+					gender: gender
 				})
 			})
 	}
@@ -82,33 +84,17 @@ class Talents extends Component {
 		images[index] = image
 		this.setState({ ...this.state, images: images });
 		this.state.selectedImages.push(index);
-		console.log("faisal", this.state.images)
 	}
 
-	editTalent = (index) => {
-
-	}
 
 	deleteTalent = (index) => {
-		//console.log(index);
 		let talents = this.state.images;
 		let talentId = talents[index].slug;
-		console.log(talentId);
 		const formdata = new FormData();
 		formdata.append("slug", talentId);
-		const body = {
-			slug: talentId
-		};
 		const token = localStorage.getItem('token');
 
-		console.log(token)
-
-		const access_token = token
-		const slug = talentId
-
-//--------
 		var url = `${config.URL}/talent`;
-		var json = JSON.stringify(formdata);
 		var xhr = new XMLHttpRequest();
 		xhr.open("DELETE", url, true);
 		xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -116,23 +102,6 @@ class Talents extends Component {
 			console.log(JSON.parse(xhr.responseText));
 		}
 		xhr.send(formdata);
-//------------
-
-		// axios.delete(`${config.URL}/talent`, {
-		// 	headers: {
-		// 		'Authorization': `Bearer ${access_token}`,
-		// 		'Content-Type': 'application/json'
-		// 	},
-		// 	body: JSON.stringify([
-		// 		slug
-		// 	])
-		// })
-		// 	.then(function (response) {
-		// 		//handle success
-		// 		console.log(response);
-		// 	})
-		// 	.catch(err => { if (err.request) { console.log(err.request) } if (err.response) { console.log(err.response) } });
-
 	}
 
 	selectAll = () => {
