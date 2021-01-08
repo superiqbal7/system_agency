@@ -82,7 +82,7 @@ class Detail extends Component {
 									{this.state.type == 'talent_video' ? ' ' : (
 										<div className="col-sm-4 ">
 											<div className="pleft">
-												<h3 className="detailTalentLastname flex justify-center uppercase"><strong>{`${talent.name} `}</strong> {talent.last_name} </h3>
+												<h3 className="detailTalentLastname flex justify-center"><strong className="uppercase">{`${talent.name} `}</strong> {talent.last_name} </h3>
 												<div className="flex justify-center">
 												<table className="tableTalentDetails helvetica-neue-light" style={{ width: '100%', marginTop: '7rem', margin: '100px 15px 40px auto' }}>
 													<tr className="fles justify-center" style={{ width: '100%'}}>
