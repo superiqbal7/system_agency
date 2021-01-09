@@ -31,14 +31,14 @@ class SliderImages extends Component {
 				infinite: true,
 				speed: 500,
 				slidesToShow: 1,
-				adaptiveHeight: true,
+				adaptiveHeight: false,
 			};
 		} else if (this.props.type === "talent_polaroid") {
 			settings = {
 				dots: false,
 				infinite: true,
 				speed: 500,
-				slidesToShow: 3,
+				slidesToShow: 2,
 				slidesToScroll: 1,
 				adaptiveHeight: true,
 			};
@@ -53,7 +53,7 @@ class SliderImages extends Component {
 						<div className="slider-image-wrapper">
 							{this.props.type != "talent_video" && (
 								<img
-									className="image slider-image"
+									className="image slider-image h-full w-auto"
 									src={`https://api.systemagency.com${image.route}`}
 									alt=""
 								/>

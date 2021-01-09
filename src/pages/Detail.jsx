@@ -27,7 +27,10 @@ class Detail extends Component {
 				this.setState({
 					data: response.data.item.rows
 				})
+				this.silderShow("talent_portfolio")
 			});
+
+		
 	}
 
 	silderShow = (picName) => {
@@ -118,7 +121,8 @@ class Detail extends Component {
 												</table>
 												</div>
 												
-												<div className="pdf_btn">
+												<div className="flex justify-center mt-4">
+													<div className="pdf_btn">
 													<a href={"https://www.instagram.com/" + formatInstagramContext(talent.instagram)}><i class="fa fa-instagram" style={{ fontsize: "24px", display: "block" }}></i></a>
 													<a className="helvetica-neue-italic" href={"https://www.instagram.com/" + formatInstagramContext(talent.instagram)}>@{formatInstagramContext(talent.instagram)}</a>
 													<div>
@@ -127,6 +131,8 @@ class Detail extends Component {
 														</section>
 													</div>
 												</div>
+												</div>
+												
 											</div>
 										</div>
 									) }
@@ -136,7 +142,7 @@ class Detail extends Component {
 											null
 											:
 											<div className="col-sm-4">
-												<img style={{ width: '340px' }} className="image center-image" src={`https://api.systemagency.com${talent.Resources[0].route}`} alt={talent.name} ></img>
+												<img style={{ width: '315px' }} className="image center-image" src={`https://api.systemagency.com${talent.Resources[0].route}`} alt={talent.name} ></img>
 											</div>
 									}
 
@@ -153,9 +159,9 @@ class Detail extends Component {
 								</div>
 
 								<div className="detail_btn text-center my-4" style={{ fontStyle: 'italic' }}>
-									<label className={this.state.type == 'talent_portfolio' ? 'active px-12' : 'px-12'} onClick={() => this.silderShow("talent_portfolio")}>PORTFOLIO</label>
-									<label className={this.state.type == 'talent_polaroid' ? 'active px-12' : 'px-12'} onClick={() => this.silderShow("talent_polaroid")}>POLAS</label>
-									<label class={this.state.type == 'talent_video' ? 'active px-12' : 'px-12'} onClick={() => this.silderShow("talent_video")}> VIDEOS</label>
+									<label className={this.state.type == 'talent_portfolio' ? 'active px-12 font-bold' : 'px-12 hover:font-bold'} onClick={() => this.silderShow("talent_portfolio")}>PORTFOLIO</label>
+									<label className={this.state.type == 'talent_polaroid' ? 'active px-12 font-bold' : 'px-12 hover:font-bold'} onClick={() => this.silderShow("talent_polaroid")}>POLAROIDS</label>
+									<label class={this.state.type == 'talent_video' ? 'active px-12 font-bold' : 'px-12 hover:font-bold'} onClick={() => this.silderShow("talent_video")}> VIDEOS</label>
 									{/* <button> <Link>EDIT</Link></button> */}
 								</div>
 

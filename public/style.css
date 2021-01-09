@@ -422,17 +422,18 @@ a:hover {
   padding-top: 0.2rem;
   font-weight: bold;
   text-align: left;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   width: 50%;
 }
 .pleft {
   padding-top: 0%;
+  height: 80%;
   text-align: center;
 }
 .pleft table th {
   width: 50%;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-align: right;
   font-weight: normal;
   padding-right: 15px;
@@ -444,11 +445,7 @@ a:hover {
   margin: 0%;
 }
 .pdf_btn {
-  margin-top: 1rem;
-  margin-left: 10rem;
-  padding: 5px;
-  width: 100px;
-  margin: 0 auto;
+  height: 100%;
 }
 .pdf_btn i {
   font-size: 30px;
